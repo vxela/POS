@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('login');
+// });
+
+Route::get('/', 'LoginController@index');
+Route::get('/login', 'LoginController@index')->name('login');
+Route::post('/auth', 'LoginController@authLogin');
+Route::get('/logout', 'LoginController@logout');
+
+Route::group(['middleware' => 'auth'], function () {
+    
+    Route::get('/dashboard', 'DashboardController@index');
+    
+    Route::get('/penjualan', 'PenjualanController@index');
+    
+    Route::get('/produksi', 'ProduksiController@index');
+
 });
