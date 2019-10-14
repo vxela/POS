@@ -30,3 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/produksi', 'ProduksiController@index');
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

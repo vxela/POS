@@ -32,16 +32,32 @@
 							<div class="header">
 								<div class="logo text-center"><img src="{{asset('kloro/roxzon_logo.png')}}" alt="Klorofil Logo"></div>
 								<p class="lead">Login to your account</p>
+								@if(\Session::has('alert'))
+									<div class="alert alert-danger">
+										<div>{{Session::get('alert')}}</div>
+									</div>
+								@endif
+								@if(\Session::has('alert-success'))
+									<div class="alert alert-success">
+										<div>{{Session::get('alert-success')}}</div>
+									</div>
+								@endif
 							</div>
 							<form class="form-auth-small" action="/auth" method="POST">
 								{{csrf_field()}}
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" name="email" class="form-control" id="signin-email" placeholder="Email">
+									<input type="email" name="email" class="form-control @error('email') is-invalid @enderror" 
+									placeholder="Email" value="{{ old('email') }}">
+									@error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" name="password" class="form-control" id="signin-password" placeholder="Password">
+									<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="signin-password" placeholder="Password">
 								</div>
 								{{-- <div class="form-group clearfix">
 									<label class="fancy-checkbox element-left">
