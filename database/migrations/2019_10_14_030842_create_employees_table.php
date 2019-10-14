@@ -23,6 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->string('emp_phone_number', 13);
             $table->string('emp_religion', 15);
             $table->date('emp_date_in');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

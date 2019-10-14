@@ -16,6 +16,7 @@ class CreateJobPositionsTable extends Migration
         Schema::create('tbl_job_positions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('position_name', 50);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
