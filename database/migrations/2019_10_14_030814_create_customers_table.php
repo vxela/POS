@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->text('ctm_org_address');
             $table->string('ctm_contact', 13);
             $table->string('ctm_private_contact', 13);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

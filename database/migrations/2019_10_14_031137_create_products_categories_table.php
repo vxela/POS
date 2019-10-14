@@ -17,6 +17,7 @@ class CreateProductsCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('category_name', 50);
             $table->text('category_desc');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

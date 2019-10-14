@@ -15,7 +15,10 @@ class CreateSalesTable extends Migration
     {
         Schema::create('tbl_sales', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nota_number', 191);
+            $table->integer('product_id');
             $table->integer('product_quantity');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

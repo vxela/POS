@@ -18,6 +18,7 @@ class CreateWorkfieldsTable extends Migration
             $table->string('wf_name', 50);
             $table->text('wf_desc');
             $table->text('wf_responsibility');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
