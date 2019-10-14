@@ -7,22 +7,36 @@ use Auth;
 
 class LoginController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('login');
     }
 
-    public function authLogin(Request $request) {
+    public function authLogin(Request $request)
+    {
         // dd($request->all());
-        if(Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/dashboard');
+        $this->validate($request, [
+            'email'           => 'required|max:255|email',
+            'password'           => 'required|confirmed',
+        ]);
+
+        // if (Auth::attempt($request->only('email', 'password'))) {
+        //     return redirect('/dashboard');
+        // }
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) {
+            return redirect()->intended('/dashboard');
         }
-        else {
-            return redirect('/login');
-        }
+        return redirect()->back()->with(['error' => 'Password Invalid / Inactive Users']);
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('/login');
     }
 }
+
+
+$rules = array(
+    'name'    => 'required',
+);
