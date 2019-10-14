@@ -23,6 +23,7 @@ Route::get('/logout', 'LoginController@logout');
 Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/dashboard/manager', 'DashboardController@index');
     
     Route::get('/penjualan', 'PenjualanController@index');
     

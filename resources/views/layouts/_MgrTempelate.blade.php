@@ -90,8 +90,8 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="elements.html" class=""><i class="lnr lnr-cart"></i> <span>Penjualan</span></a></li>
+						<li><a href="/dashboard/manager" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/penjualan" class=""><i class="lnr lnr-cart"></i> <span>Penjualan</span></a></li>
 						<li>
 							<a href="#subDataJual" data-toggle="collapse" class="collapsed"><i class="lnr lnr-chart-bars"></i> <span>Laporan Penjualan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDataJual" class="collapse ">
