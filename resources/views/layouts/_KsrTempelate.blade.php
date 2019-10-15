@@ -74,7 +74,7 @@
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								{{-- <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li> --}}
 								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
 						<!-- <li>
@@ -104,7 +104,7 @@
 							</div>
 						</li>
 						<li><a href="charts.html" class=""><i class="lnr lnr-cog"></i> <span>Pengaturan Akun</span></a></li>
-						<li><a href="charts.html" class=""><i class="lnr lnr-power-switch"></i> <span>Log Out</span></a></li>
+						<li><a href="/logout" class=""><i class="lnr lnr-power-switch"></i> <span>Log Out</span></a></li>
 					</ul>
 				</nav>
 			</div>

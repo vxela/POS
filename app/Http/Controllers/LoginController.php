@@ -14,7 +14,23 @@ class LoginController extends Controller
     public function authLogin(Request $request) {
         // dd($request->all());
         if(Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/dashboard');
+            if(auth()->user()->user_role == 'admin' || auth()->user()->user_role == 'manajemen') {
+                
+                return redirect('/dashboard');
+
+            } elseif(auth()->user()->user_role == 'gudang') {
+
+                return redirect('/produksi');
+
+            } elseif(auth()->user()->user_role == 'kasir') {
+
+                return redirect('/penjualan');
+
+            } else {
+
+                return redirect('/logout');
+
+            }
         }
         else {
             return redirect('/login');

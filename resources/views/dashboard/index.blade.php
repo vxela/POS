@@ -1,5 +1,5 @@
 @extends('layouts._MgrTempelate')
 
 @section('content')
-<h1>this is dashboard Manager</h1>    
+<h1>this is dashboard Admin</h1>    
 @endsection
