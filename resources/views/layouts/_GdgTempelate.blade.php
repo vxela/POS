@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="{{asset('kloro/vendor/font-awesome/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/vendor/linearicons/style.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/vendor/chartist/css/chartist-custom.css')}}">
+	<link rel="stylesheet" href="{{asset('kloro/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('kloro/datatable/datatables.min.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('kloro/css/main.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -90,8 +92,8 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="elements.html" class=""><i class="lnr lnr-drop"></i> <span>Produksi</span></a></li>
+						<li><a href="/produksi" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/produksi/tabel" class=""><i class="lnr lnr-drop"></i> <span>Produksi</span></a></li>
 						<li>
 							<a href="#subDataProdiksi" data-toggle="collapse" class="collapsed"><i class="lnr lnr-pie-chart"></i> <span>Laporan Produksi</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDataProdiksi" class="collapse ">
@@ -138,6 +140,7 @@
 	<script src="{{asset('kloro/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('kloro/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('kloro/scripts/klorofil-common.js')}}"></script>
+	<script src="{{asset('kloro/datatable/datatables.min.js')}}"></script>
 	<script>
 	$(function() {
 		var data, options;
@@ -255,6 +258,10 @@
 		}
 
 	});
+	
+	$(document).ready( function () {
+		$('#table_id').DataTable();
+	} );
 	</script>
 </body>
 

@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang']], function () {
     
     Route::get('/produksi', 'ProduksiController@index');
+    Route::get('/produksi/tabel', 'ProduksiController@listAll');
+    Route::get('/produksi/tambah', 'ProduksiController@add');
 
 });
 

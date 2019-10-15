@@ -17,6 +17,17 @@ class ProduksiController extends Controller
         return view('produksi.index');
     }
 
+    public function listAll() 
+    {
+        $data_produk = \App\Models\Tbl_product::all();
+        // dd($data_produk);
+        return view('produksi.list_table', ['data_produk' => $data_produk]);
+    }
+
+    public function add() 
+    {
+        return view('produksi.add_form');
+    }
     /**
      * Show the form for creating a new resource.
      *
