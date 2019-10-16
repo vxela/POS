@@ -1,13 +1,16 @@
 @extends('layouts._GdgTempelate')
 
 @section('content')
-<h3 class="page-title">Tambah Produk</h3>
+{{-- <h3 class="page-title">Tambah Produk</h3> --}}
 <div class="row">
         <div class="col-md-12">
                 <!-- PANEL HEADLINE -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Form Tambah Produk</h3>
+                    <div class="right">
+                        <a href="/produksi/tambah" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div class="">
@@ -20,6 +23,7 @@
                                     <th>Harga</th>
                                     <th>Owner</th>
                                     <th>Oleh</th>
+                                    <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,6 +35,19 @@
                                     <td>{{$produk->product_price}}</td>
                                     <td>{{$produk->product_owner}}</td>
                                     <td>{{$produk->user_id}}</td>
+                                    <td>
+                                        <div class="dt-bt">
+                                            <a class="btn btn-primary btn-xs pd-less" href="/produksi/produk/{{$produk->id}}">
+                                                <i class="lnr lnr-eye"></i>
+                                            </a>
+                                            <a class="btn btn-success btn-xs pd-less" href="/produksi/edit/{{$produk->id}}">
+                                                <i class="lnr lnr-pencil"></i>
+                                            </a>
+                                            <a class="btn btn-danger btn-xs pd-less" href="/produksi/delete/{{$produk->id}}">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>    
                                 @endforeach
                             </tbody>

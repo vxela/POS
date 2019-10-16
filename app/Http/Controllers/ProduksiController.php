@@ -58,6 +58,9 @@ class ProduksiController extends Controller
     public function show($id)
     {
         //
+        $produk_data = \App\Models\Tbl_product::find($id);
+        // dd($produk_data);
+        return view('produksi.produkdetail', ['data_produk' => $produk_data]);
     }
 
     /**
@@ -68,7 +71,9 @@ class ProduksiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produk_data = \App\Models\Tbl_product::find($id);
+        // dd($produk_data);
+        return view('produksi.produk_edit', ['data_produk' => $produk_data]);
     }
 
     /**
@@ -81,6 +86,13 @@ class ProduksiController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function delete($id) {
+
+        $produk_data = \App\Models\Tbl_product::find($id);
+        return view('produksi.produk_delete', ['data_produk' => $produk_data]);
+
     }
 
     /**

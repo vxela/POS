@@ -15,3 +15,31 @@
     margin-right:auto;
     background-color:#f1f1f1;
 }
+
+.pd-less {
+    padding: 5px 10px !important;
+}
+
+.dt-bt {
+    align-items: center;
+}
+
+.mb-1 {
+    margin-bottom: 1em;
+}
+
+.mb-2 {
+    margin-bottom: 2em;
+}
+
+.mb-3 {
+    margin-bottom: 3em;
+}
+
+.mb-4 {
+    margin-bottom: 4em;
+}
+
+.mb-5 {
+    margin-bottom: 5em;
+}

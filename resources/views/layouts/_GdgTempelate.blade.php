@@ -71,7 +71,7 @@
 							</ul>
 						</li> --}}
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('kloro/img/user.png')}}" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('kloro/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{auth()->user()->name}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								{{-- <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li> --}}
@@ -94,6 +94,7 @@
 					<ul class="nav">
 						<li><a href="/produksi" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="/produksi/tabel" class=""><i class="lnr lnr-drop"></i> <span>Produksi</span></a></li>
+						<li><a href="/produksi/tambah" class=""><i class="lnr lnr-file-add"></i> <span>Tambah Produk</span></a></li>
 						<li>
 							<a href="#subDataProdiksi" data-toggle="collapse" class="collapsed"><i class="lnr lnr-pie-chart"></i> <span>Laporan Produksi</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDataProdiksi" class="collapse ">

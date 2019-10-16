@@ -40,6 +40,9 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang']], 
     
     Route::get('/produksi', 'ProduksiController@index');
     Route::get('/produksi/tabel', 'ProduksiController@listAll');
+    Route::get('/produksi/produk/{id}', 'ProduksiController@show');
+    Route::get('/produksi/edit/{id}', 'ProduksiController@edit');
+    Route::get('/produksi/delete/{id}', 'ProduksiController@delete');
     Route::get('/produksi/tambah', 'ProduksiController@add');
 
 });
