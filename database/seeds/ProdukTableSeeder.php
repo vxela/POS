@@ -43,7 +43,7 @@ class ProdukTableSeeder extends Seeder
             DB::table('tbl_products')->insert([
                 'product_code' => $this->getproductCode(),
                 'product_name' => $this->getProductName(),
-                'category_product_id' => rand(1,2),
+                'category_product_id' => 1,
                 'product_price' => $this->getPrice(),
                 'product_owner' => 'Roxzon',
                 'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',

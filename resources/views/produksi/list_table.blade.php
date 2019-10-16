@@ -31,10 +31,10 @@
                                 <tr>
                                     <td>{{$produk->product_code}}</td>
                                     <td>{{$produk->product_name}}</td>
-                                    <td>{{$produk->category_product_id}}</td>
+                                    <td>{{$produk->category()->category_name}}</td>
                                     <td>{{$produk->product_price}}</td>
                                     <td>{{$produk->product_owner}}</td>
-                                    <td>{{$produk->user_id}}</td>
+                                    <td>{{$produk->getUser()->name}}</td>
                                     <td>
                                         <div class="dt-bt">
                                             <a class="btn btn-primary btn-xs pd-less" href="/produksi/produk/{{$produk->id}}">

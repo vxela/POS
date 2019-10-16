@@ -35,7 +35,7 @@
                                     Kategori Produk
                                 </div>
                                 <div class="col-md-9">
-                                    {{$data_produk->category_product_id}}
+                                    {{$data_produk->category()->category_name}}
                                 </div>   
                             </div> 
                             <div class="row mb-1">
@@ -67,7 +67,7 @@
                                     Di input oleh
                                 </div>
                                 <div class="col-md-9">
-                                    {{$data_produk->user_id}}
+                                    {{$data_produk->getUser()->name}}
                                 </div>   
                             </div> 
                             <div class="row mb-1">
