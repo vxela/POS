@@ -88,8 +88,8 @@
                                 </div>                                                                                  
                             </div>
                             <div class="col-md-4">
-                                <button type="button" class="btn btn-danger btn-sm">I confirm to delete!</button>
-                                <button type="button" class="btn btn-secondary btn-sm">No, bring me back</button>
+                                <a href="/produksi/destroy/{{$data_produk->id}}" class="btn btn-danger btn-sm">I confirm to delete!</a>
+                                <a href="/produksi/tabel" class="btn btn-default btn-sm">No, bring me back</a>
                             </div> 
                         {{-- <div class="col-sm-12">
                                 <button type="button" class="btn btn-primary btn-sm">I confirm!</button>
