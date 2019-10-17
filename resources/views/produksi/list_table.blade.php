@@ -14,6 +14,11 @@
                 </div>
                 <div class="panel-body">
                     <div class="">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <table id="table_id" class="table table-hover">
                             <thead>
                                 <tr>
