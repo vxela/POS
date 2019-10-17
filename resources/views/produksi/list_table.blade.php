@@ -9,14 +9,15 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Form Tambah Produk</h3>
                     <div class="right">
-                        <a href="/produksi/tambah" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
+                        <a href="{{'/produksi/produk/create'}}" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="">
                         @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <i class="fa fa-info-circle"></i> {{ session('status') }}
                             </div>
                         @endif
                         <table id="table_id" class="table table-hover">
@@ -45,10 +46,10 @@
                                             <a class="btn btn-primary btn-xs pd-less" href="/produksi/produk/{{$produk->id}}">
                                                 <i class="lnr lnr-eye"></i>
                                             </a>
-                                            <a class="btn btn-success btn-xs pd-less" href="/produksi/edit/{{$produk->id}}">
+                                            <a class="btn btn-success btn-xs pd-less" href="/produksi/produk/{{$produk->id}}/edit">
                                                 <i class="lnr lnr-pencil"></i>
                                             </a>
-                                            <a class="btn btn-danger btn-xs pd-less" href="/produksi/delete/{{$produk->id}}">
+                                            <a class="btn btn-danger btn-xs pd-less" href="/produksi/produk/{{$produk->id}}/delete">
                                                 <i class="fa fa-trash-o"></i>
                                             </a>
                                         </div>

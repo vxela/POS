@@ -11,47 +11,43 @@ class ProduksiController extends Controller
     public function index()
     {
 
-        return view('produksi.index');
+        $data_produk = \App\Models\Tbl_product::all();
+        return view('produksi.list_table', ['data_produk' => $data_produk]);
 
     }
-
-    public function listAll() 
+    
+    public function listall() 
     {
         $data_produk = \App\Models\Tbl_product::all();
-        
         return view('produksi.list_table', ['data_produk' => $data_produk]);
     }
+    
+    public function show($id)
+    {
 
-    public function add() 
+        $produk_data = \App\Models\Tbl_product::find($id);
+
+        return view('produksi.produkdetail', ['data_produk' => $produk_data]);
+    }
+
+    public function create()
     {
     
         $countData =\App\Models\Tbl_product::all();
         $cat_data = \App\Models\Tbl_product_categorie::all();
 
         if(count($countData) == 0) {
-            $lastid = 1;
+            $lastid = [1];
         } else {
             $lastid =\App\Models\Tbl_product::all()->last()->id+1;
         }
 
-        if($lastid<10) {
-            $id = "00".$lastid;
-        } elseif($lastid>9 && $lastid<100) {
-            $id = "0".$lastid;
-        } else {
-            $id = $lastid;
-        }
-        $dat = date('Ymd');
+        $id = str_pad($lastid, 4, "00", STR_PAD_LEFT);
 
-        $code_product = array("RXZ".$dat.$id, "RXG".$dat.$id);
+        $code_product = array("RXZ".date('Ymd').$id, "RXG".date('Ymd').$id);
 
         return view('produksi.add_form', ['code_produk' => $code_product, 'data_cat' => $cat_data]);
 
-    }
-
-    public function create()
-    {
-        //
     }
 
     public function store(Request $request)
@@ -71,17 +67,10 @@ class ProduksiController extends Controller
 
         $product->save();
 
-        return redirect('/produksi/tabel')->with('status', 'Tambah data sukses');
+        return redirect('/produksi/produk')->with('status', 'Tambah data sukses');
 
     }
 
-    public function show($id)
-    {
-
-        $produk_data = \App\Models\Tbl_product::find($id);
-
-        return view('produksi.produkdetail', ['data_produk' => $produk_data]);
-    }
 
     public function edit($id)
     {
@@ -123,7 +112,7 @@ class ProduksiController extends Controller
 
         $produk->forceDelete();
 
-        return redirect('/produksi/tabel')->with('status', 'Delete data sukses');
+        return redirect('/produksi/produk')->with('status', 'Delete data sukses');
 
     }
 }
