@@ -9,13 +9,14 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Form Tambah Produk</h3>
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-info-circle"></i>{{ session('status') }}
                         </div>
                     @endif
                 </div>
                 <div class="panel-body">
-                    <form action="{{'/produksi/simpan'}}" method="POST">
+                    <form action="{{'/produksi/produk'}}" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">

@@ -93,8 +93,8 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="/produksi" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="/produksi/tabel" class=""><i class="lnr lnr-drop"></i> <span>Produksi</span></a></li>
-						<li><a href="/produksi/tambah" class=""><i class="lnr lnr-file-add"></i> <span>Tambah Produk</span></a></li>
+						<li><a href="/produksi/produk" class=""><i class="lnr lnr-drop"></i> <span>Produksi</span></a></li>
+						<li><a href="/produksi/produk/create" class=""><i class="lnr lnr-file-add"></i> <span>Tambah Produk</span></a></li>
 						<li>
 							<a href="#subDataProdiksi" data-toggle="collapse" class="collapsed"><i class="lnr lnr-pie-chart"></i> <span>Laporan Produksi</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDataProdiksi" class="collapse ">

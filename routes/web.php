@@ -38,15 +38,9 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang']], function () {
     
-    Route::get('/produksi', 'ProduksiController@index');
-    Route::get('/produksi/tabel', 'ProduksiController@listAll');
-    Route::get('/produksi/produk/{id}', 'ProduksiController@show');
-    Route::get('/produksi/edit/{id}', 'ProduksiController@edit');
-    Route::post('/produksi/update/{id}', 'ProduksiController@update');
-    Route::get('/produksi/delete/{id}', 'ProduksiController@delete');
-    Route::get('/produksi/destroy/{id}', 'ProduksiController@destroy');
-    Route::get('/produksi/tambah', 'ProduksiController@add');
-    Route::post('/produksi/simpan', 'ProduksiController@store');
+    // Route::get('/produksi', 'ProduksiController@dashboard');
+    Route::get('/produksi/produk/{id}/delete', 'ProduksiController@delete');
+    Route::resource('produksi/produk', 'ProduksiController');
 
 });
 

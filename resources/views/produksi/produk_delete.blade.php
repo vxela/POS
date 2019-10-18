@@ -88,8 +88,12 @@
                                 </div>                                                                                  
                             </div>
                             <div class="col-md-4">
-                                <a href="/produksi/destroy/{{$data_produk->id}}" class="btn btn-danger btn-sm">I confirm to delete!</a>
-                                <a href="/produksi/tabel" class="btn btn-default btn-sm">No, bring me back</a>
+                                <form action="{{'/produksi/produk/'.$data_produk->id}}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm">I confirm to delete!</button>
+                                    <a href="/produksi/produk" class="btn btn-default btn-sm">No, bring me back</a>
+                                </form>
                             </div> 
                         {{-- <div class="col-sm-12">
                                 <button type="button" class="btn btn-primary btn-sm">I confirm!</button>
