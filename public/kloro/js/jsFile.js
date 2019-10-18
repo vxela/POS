@@ -117,4 +117,38 @@ $(function() {
 
 $(document).ready( function () {
     $('#table_id').DataTable();
+    
+    function readURL(input){
+        if(input.files && input.files[0]) {
+            var reader = new FileReader();
+        }
+
+        reader.onload = function (e) {
+            $('#img_pr').attr('src', e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+
+    }
+    
+    $("#btn_produk_img").on("click", function() {
+        $("#produk_img").trigger("click");
+        $("#produk_img").change(function (e) {
+            var fileName = e.target.files[0].name;
+            var filext = fileName.split('.').pop();
+            if(filext == "jpg") {
+                $('#file_select').text("File name : "+ fileName);
+            } 
+            else if(filext == "png") {
+                $('#file_select').text("File name : "+ fileName);
+            } else {
+                alert("jpg and png only");
+            }
+
+            readURL(this);
+            
+        });
+    });
+
+
 } );
