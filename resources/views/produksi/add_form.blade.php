@@ -79,17 +79,21 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="col-lg-12">
-                                    <div class="col-sm-10">   
-                                        <div class="image-upload" id="image-upload">
-                                        
+                                    <div class="row mb-2">
+                                        <div class="col-sm-12">   
+                                            <div class="image-upload" id="image-upload">
+                                                <img src="{{asset('img/default.png')}}" id="img_pr" class="img_pr" alt="">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <div class="row">
-                                            <input type=submit class="btn btn-secondary" value="Upload">
-                                        </div>
-                                        <div class="row" style="margin-top:5px;">
-                                            <input type="submit" class="btn btn-primary" value="Save">                                        
+                                    <div class="row">
+                                        <div class="col-sm-12">   
+                                            <input type="file" name="produk_img" id="produk_img" class="produk_img" style="display:none">
+                                            <input type="button" class="btn btn-secondary" id="btn_produk_img" value="Choose">
+                                            <input type="button" class="btn btn-primary" value="Save">  
+                                            <div class="btn" id="file_select">
+                                                File name :
+                                            </div>                                      
                                         </div>
                                     </div>
                                 </div>
