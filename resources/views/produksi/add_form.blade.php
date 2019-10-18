@@ -79,16 +79,17 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="col-lg-12">
-                                    <div class="col-sm-10">   
-                                        <div class="image-upload" id="image-upload">
-                                        
+                                    <div class="row mb-2">
+                                        <div class="col-sm-12">   
+                                            <div class="image-upload" id="image-upload">
+                                            
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <div class="row">
-                                            <input type=submit class="btn btn-secondary" value="Upload">
-                                        </div>
-                                        <div class="row" style="margin-top:5px;">
+                                    <div class="row">
+                                        <div class="col-sm-12">   
+                                            <input type="file" name="produk_img" style="display:none"/>
+                                            <input type="button" class="btn btn-secondary" value="Choose">
                                             <input type="submit" class="btn btn-primary" value="Save">                                        
                                         </div>
                                     </div>

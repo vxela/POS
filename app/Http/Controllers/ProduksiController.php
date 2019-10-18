@@ -115,4 +115,10 @@ class ProduksiController extends Controller
         return redirect('/produksi/produk')->with('status', 'Delete data sukses');
 
     }
+
+    public function dashboard() {
+
+        return view('/produksi.index');
+
+    }
 }
