@@ -8,12 +8,12 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Detail Produk {{$data_produk->product_name}}</h3>
                     <div class="right">
-                        {{-- <a href="/produksi/tambah" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a> --}}
+                        
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <div class="row mb-1">
                                 <div class="col-md-3">
                                     Kode Produk
@@ -90,11 +90,11 @@
                                 <div class="col-md-3">
                                 </div>
                                 <div class="col-md-9">
-                                    <a href="/produksi/edit/{{$data_produk->id}}" class="btn btn-success btn-sm">Edit data</a>
+                                    <a href="/produk/{{$data_produk->id}}/edit" class="btn btn-success btn-sm">Edit data</a>
                                 </div>   
                             </div>                                                                                  
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4 btn">
                                 asda
                         </div>                                                
                     </div>

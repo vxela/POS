@@ -38,8 +38,8 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang']], function () {
     
-    Route::resource('produksi/produk', 'ProduksiController');
-    Route::get('/produksi/produk/{id}/delete', 'ProduksiController@delete');
-    Route::get('/produksi', 'ProduksiController@dashboard');
+    Route::resource('/produk', 'ProdukController');
+    Route::get('/produk/{id}/delete', 'ProduksiController@delete');
+    Route::get('/dashboard', 'ProduksiController@dashboard');
 
 });
