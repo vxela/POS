@@ -14,8 +14,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $data_produk = \App\Models\Tbl_product::all();
-        return view('produksi.list_table', ['data_produk' => $data_produk]);
+        $produk = \App\Models\Tbl_product::all();
+        // dd($data_produk);
+        return view('produksi.list_table', ['data_produk' => $produk]);
     }
 
     /**
@@ -65,7 +66,7 @@ class ProdukController extends Controller
 
         $product->save();
 
-        return redirect('/produksi/produk')->with('status', 'Tambah data sukses');
+        return redirect('/produk')->with('status', 'Tambah data sukses');
 
     }
 
@@ -141,7 +142,7 @@ class ProdukController extends Controller
 
         $produk->forceDelete();
 
-        return redirect('/produksi/produk')->with('status', 'Delete data sukses');
+        return redirect('/produk')->with('status', 'Delete data sukses');
 
     }
 
@@ -150,5 +151,5 @@ class ProdukController extends Controller
         return view('/produksi.index');
 
     }
-    
+
 }

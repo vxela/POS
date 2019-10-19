@@ -39,26 +39,69 @@ class ProdukTableSeeder extends Seeder
 
     public function run()
     {
-        for($i=0;$i<20;$i++) {
-            DB::table('tbl_products')->insert([
-                'product_code' => $this->getproductCode(),
-                'product_name' => $this->getProductName(),
-                'category_product_id' => 1,
-                'product_price' => $this->getPrice(),
-                'product_owner' => 'Roxzon',
-                'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
-                'user_id' => rand(1,2),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ]);
-        }
-        
+        DB::table('tbl_products')->insert([
+            'product_code' => $this->getproductCode(),
+            'product_name' => 'Roxzon Bottle Mineral Water 650ml',
+            'category_product_id' => 1,
+            'product_unit' => 'Karton',
+            'product_price' => 4000,
+            'product_owner' => 'Roxzon',
+            'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+            'user_id' => rand(1,2),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
 
-        // DB::table('users')->insert([
-        //     'name' => 'gudang',
-        //     'email' => 'gudang@mail.com',
-        //     'password' => bcrypt('admin1234'),
-        //     'user_role' => 'gudang'
-        // ]);
+        DB::table('tbl_products')->insert([
+            'product_code' => $this->getproductCode(),
+            'product_name' => 'Roxzon Bottle Mineral Water 500ml',
+            'category_product_id' => 1,
+            'product_unit' => 'Karton',
+            'product_price' => 3000,
+            'product_owner' => 'Roxzon',
+            'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+            'user_id' => rand(1,2),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('tbl_products')->insert([
+            'product_code' => $this->getproductCode(),
+            'product_name' => 'Roxzon Cup Mineral Water 250ml',
+            'category_product_id' => 1,
+            'product_unit' => 'Karton',
+            'product_price' => 1000,
+            'product_owner' => 'Roxzon',
+            'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+            'user_id' => rand(1,2),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('tbl_products')->insert([
+            'product_code' => $this->getproductCode(),
+            'product_name' => 'Roxzon Galon Mineral Water 15L',
+            'category_product_id' => 1,
+            'product_unit' => 'Galon',
+            'product_price' => 12500,
+            'product_owner' => 'Roxzon',
+            'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+            'user_id' => rand(1,2),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('tbl_products')->insert([
+            'product_code' => $this->getproductCode(),
+            'product_name' => 'Blue Punch 500ml',
+            'category_product_id' => 1,
+            'product_unit' => 'Karton',
+            'product_price' => 5000,
+            'product_owner' => 'Roxzon',
+            'product_desc' => 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+            'user_id' => rand(1,2),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }

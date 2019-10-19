@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('product_code', 191);
             $table->string('product_name', 50);
             $table->integer('category_product_id');
+            $table->string('product_unit', 20);
             $table->integer('product_price');
             $table->string('product_owner', 50);
             $table->text('product_desc');

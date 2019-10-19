@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ProduksiController extends Controller
 {
@@ -13,7 +14,9 @@ class ProduksiController extends Controller
      */
     public function index()
     {
-        //
+        $produksi = \App\Models\Tbl_production::all();
+
+        return view('produksi.tabel_produksi', ['data_produksi' => $produksi]);
     }
 
     /**
@@ -23,7 +26,7 @@ class ProduksiController extends Controller
      */
     public function create()
     {
-        //
+        return view('produksi.create_produksi');
     }
 
     /**
@@ -46,6 +49,7 @@ class ProduksiController extends Controller
     public function show($id)
     {
         //
+        return view('produksi.show_produksi');
     }
 
     /**
@@ -56,7 +60,7 @@ class ProduksiController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('produksi.edit_produksi');
     }
 
     /**
@@ -71,6 +75,11 @@ class ProduksiController extends Controller
         //
     }
 
+
+    public function delete($id)
+    {
+        return view('produksi.delete_produksi');
+    }
     /**
      * Remove the specified resource from storage.
      *
