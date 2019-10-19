@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Form Tambah Produk</h3>
                     <div class="right">
-                        <a href="{{'/produksi/produk/create'}}" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
+                        <a href="{{'/produk/create'}}" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -43,13 +43,13 @@
                                     <td>{{$produk->getUser()->name}}</td>
                                     <td>
                                         <div class="dt-bt">
-                                            <a class="btn btn-primary btn-xs pd-less" href="/produksi/produk/{{$produk->id}}">
+                                            <a class="btn btn-primary btn-xs pd-less" href="/produk/{{$produk->id}}">
                                                 <i class="lnr lnr-eye"></i>
                                             </a>
-                                            <a class="btn btn-success btn-xs pd-less" href="/produksi/produk/{{$produk->id}}/edit">
+                                            <a class="btn btn-success btn-xs pd-less" href="/produk/{{$produk->id}}/edit">
                                                 <i class="lnr lnr-pencil"></i>
                                             </a>
-                                            <a class="btn btn-danger btn-xs pd-less" href="/produksi/produk/{{$produk->id}}/delete">
+                                            <a class="btn btn-danger btn-xs pd-less" href="/produk/{{$produk->id}}/delete">
                                                 <i class="fa fa-trash-o"></i>
                                             </a>
                                         </div>

@@ -16,7 +16,7 @@
                     @endif
                 </div>
                 <div class="panel-body">
-                    <form action="{{'/produksi/produk'}}" method="POST">
+                    <form action="{{'/produk'}}" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
