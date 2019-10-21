@@ -89,13 +89,23 @@ class ProduksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produksi = \App\Models\Tbl_production::find($id);
+
+        $produksi->product_id = $request->id_produk;
+        $produksi->product_quantity = $request->jml_produksi;
+        $produksi->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+
+        $produksi->save();
+
+        return redirect()->back()->with('status', 'Tambah data sukses');
     }
 
 
     public function delete($id)
     {
-        return view('produksi.delete_produksi');
+        $produksi = \App\Models\Tbl_production::find($id);
+
+        return view('produksi.delete_produksi', ['data_produksi' => $produksi]);
     }
     /**
      * Remove the specified resource from storage.
@@ -105,6 +115,11 @@ class ProduksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produksi = \App\Models\Tbl_production::find($id);
+
+        $produksi->forceDelete();
+
+        return redirect('/produksi')->with('status', 'Delete data sukses');
+
     }
 }
