@@ -84,7 +84,7 @@
                                         Di input oleh
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" placeholder="text field" value="{{$data_produk->user_id}}" disabled>
+                                        <input type="text" class="form-control" placeholder="text field" value="{{$data_produk->getUser()->name}}" disabled>
                                     </div>   
                                 </div>      
                                 <div class="row mb-1">
