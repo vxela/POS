@@ -75,7 +75,9 @@ class ProduksiController extends Controller
      */
     public function edit($id)
     {
-        return view('produksi.edit_produksi');
+        $produk = \App\Models\Tbl_product::all();
+        $produksi = \App\Models\Tbl_production::find($id);
+        return view('produksi.edit_produksi', ['data_produk' => $produk, 'data_produksi' => $produksi]);
     }
 
     /**
