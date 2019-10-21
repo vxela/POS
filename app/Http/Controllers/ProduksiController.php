@@ -63,7 +63,8 @@ class ProduksiController extends Controller
     public function show($id)
     {
         //
-        return view('produksi.show_produksi');
+        $produksi = \App\Models\Tbl_production::find($id);
+        return view('produksi.show_produksi', ['data_produksi' => $produksi]);
     }
 
     /**
