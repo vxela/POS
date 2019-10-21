@@ -26,7 +26,8 @@ class ProduksiController extends Controller
      */
     public function create()
     {
-        return view('produksi.create_produksi');
+        $produk = \App\Models\Tbl_product::all();
+        return view('produksi.create_produksi', ['produk_data' => $produk]);
     }
 
     /**
@@ -37,7 +38,20 @@ class ProduksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produksi = new \App\Models\Tbl_production;
+
+        $produksi->product_id = $request->id_produk;
+        $produksi->product_quantity = $request->jml_produksi;
+        $produksi->activity_date = Carbon::now()->format('Y-m-d H:i:s');
+        $produksi->user_id = auth()->user()->id;
+        $produksi->created_at = Carbon::now()->format('Y-m-d H:i:s');
+        $produksi->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+
+        $produksi->save();
+
+        return redirect('/produksi')->with('status', 'Tambah data sukses');
+        
+
     }
 
     /**
