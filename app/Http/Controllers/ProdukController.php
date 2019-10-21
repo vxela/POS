@@ -26,7 +26,7 @@ class ProdukController extends Controller
      */
     public function create()
     {    
-        $countData =\App\Models\Tbl_product::all();
+        $countData = \App\Models\Tbl_product::all();
         $cat_data = \App\Models\Tbl_product_categorie::all();
 
         if(count($countData) == 0) {
