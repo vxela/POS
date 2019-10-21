@@ -23,6 +23,7 @@
                         <table id="table_id" class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
                                     <th>Nama Produk</th>
                                     <th>Jumlah Produksi</th>
                                     <th>Tanggal Produksi</th>
@@ -31,8 +32,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $n = count($data_produksi);
+                                @endphp
                                 @foreach ($data_produksi as $produksi)
                                 <tr>
+                                    <td>{{$n}}</td>
                                     <td>{{$produksi->getProduk()->product_name}}</td>
                                     <td>{{$produksi->product_quantity." ".$produksi->getProduk()->product_unit}}</td>
                                     <td>{{$produksi->activity_date}}</td>
@@ -50,7 +55,10 @@
                                             </a>
                                         </div>
                                     </td>
-                                </tr>    
+                                </tr>  
+                                @php
+                                    $n--;
+                                @endphp  
                                 @endforeach
                             </tbody>
                         </table>
