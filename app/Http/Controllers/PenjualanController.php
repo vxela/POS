@@ -13,8 +13,8 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        //
-        return view('penjualan.index');
+        $penjualan = \App\Models\Tbl_sale::all();
+        return view('penjualan.index', ['data_penjualan' => $penjualan]);
     }
 
     /**
