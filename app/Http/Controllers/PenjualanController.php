@@ -46,7 +46,8 @@ class PenjualanController extends Controller
      */
     public function show($id)
     {
-        return view('penjualan.show_sale');
+        $sale = \App\Models\Tbl_sale::find($id);
+        return view('penjualan.show_sale', ['data_penjualan' => $sale]);
     }
 
     /**
@@ -73,7 +74,7 @@ class PenjualanController extends Controller
     }
 
     public function delete($id){
-
+        
         return view('penjualan.delete_sale');
 
     }
