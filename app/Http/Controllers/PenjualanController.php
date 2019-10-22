@@ -24,7 +24,7 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        //
+        return view('penjualan.create_sale');
     }
 
     /**
@@ -35,7 +35,7 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +46,7 @@ class PenjualanController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('penjualan.show_sale');
     }
 
     /**
@@ -57,7 +57,7 @@ class PenjualanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('penjualan.edit_sale');
     }
 
     /**
@@ -72,6 +72,11 @@ class PenjualanController extends Controller
         //
     }
 
+    public function delete($id){
+
+        return view('penjualan.delete_sale');
+
+    }
     /**
      * Remove the specified resource from storage.
      *

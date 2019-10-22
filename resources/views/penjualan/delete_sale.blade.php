@@ -1,0 +1,1 @@
+ini delete sale by id

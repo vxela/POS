@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Tabel Penjualan</h3>
                     <div class="right">
-                        <a href="{{'/produksi/create'}}" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
+                        <a href="{{'/penjualan/create'}}" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data </a>
                     </div>
                 </div>
                 <div class="panel-body">
