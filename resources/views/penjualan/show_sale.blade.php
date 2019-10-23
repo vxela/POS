@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-lg-9">
                             <strong>
-                                {{$data_penjualan->getProduk()->product_price}}
+                                {{Fprice::Rupiah($data_penjualan->getProduk()->product_price)}}
                             </strong>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-lg-9">
                             <strong>
-                                {{$data_penjualan->product_quantity * $data_penjualan->getProduk()->product_price}}
+                                {{Fprice::Rupiah($data_penjualan->product_quantity * $data_penjualan->getProduk()->product_price)}}
                             </strong>
                         </div>
                     </div>
@@ -84,7 +84,19 @@
                         </div>
                         <div class="col-lg-9">
                             <strong>
-                                Lunas
+                                @if ($data_penjualan->status_order == 'lunas')
+                                    <span class="label label-primary" style="font-size:100%">
+                                        {{$data_penjualan->status_order}}                                        
+                                    </span>
+                                @elseif ($data_penjualan->status_order == 'utang')
+                                    <span class="label label-warning" style="font-size:100%">
+                                        {{$data_penjualan->status_order}}                                        
+                                    </span>
+                                @else 
+                                    <span class="label label-info" style="font-size:100%">
+                                        {{$data_penjualan->status_order}}                                        
+                                    </span>
+                                @endif
                             </strong>
                         </div>
                     </div>

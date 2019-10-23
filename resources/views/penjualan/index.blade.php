@@ -27,7 +27,7 @@
                                     <th>Nama Produk</th>
                                     <th>Jumlah Produksi</th>
                                     <th>Tanggal Produksi</th>
-                                    <th>Oleh</th>
+                                    <th>Status</th>
                                     <th>-</th>
                                 </tr>
                             </thead>
@@ -41,7 +41,7 @@
                                     <td>{{$penjualan->getProduk()->product_name}}</td>
                                     <td>{{$penjualan->product_quantity." ".$penjualan->getProduk()->product_unit}}</td>
                                     <td>{{$penjualan->created_at}}</td>
-                                    <td>{{$penjualan->getUser()->name}}</td>
+                                    <td>{{$penjualan->status_order}}</td>
                                     <td>
                                         <div class="dt-bt">
                                             <a class="btn btn-primary btn-xs pd-less" href="/penjualan/{{$penjualan->id}}">

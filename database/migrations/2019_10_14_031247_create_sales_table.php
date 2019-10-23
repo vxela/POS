@@ -18,6 +18,7 @@ class CreateSalesTable extends Migration
             $table->string('nota_number', 191);
             $table->integer('product_id');
             $table->integer('product_quantity');
+            $table->enum('status_order', ['lunas','utang', 'belum lunas']);
             $table->integer('user_id');
             $table->timestamps();
         });
