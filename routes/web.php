@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
 
     Route::resource('/penjualan', 'PenjualanController');
     Route::get('/penjualan/{id}/delete', 'PenjualanController@delete');
+    Route::post('/penjualan/storetemp', 'PenjualanController@storeTemp');
 });
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang']], function () {

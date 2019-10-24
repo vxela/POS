@@ -16,8 +16,8 @@
                             <i class="fa fa-info-circle"></i> {{ session('status') }}
                         </div>
                     @endif
-                    <form action="/penjualan" method="post">
-                        <div class="col-lg-8">
+                    <form action="/penjualan/storetemp" method="post">
+                        <div class="col-lg-6">
                             <div class="row mb-1">
                                 <div class="col-lg-3">
                                     <strong>
@@ -25,8 +25,8 @@
                                     </strong>
                                 </div>
                                 <div class="col-lg-9">
-                                    <input type="text" nama="customer_name" class="form-control" placeholder="Customer Name">
                                     @csrf
+                                    <input type="text" name="customer_name" class="form-control" placeholder="Customer Name">
                                 </div>
                             </div>
                             <div class="row mb-1">
@@ -96,7 +96,9 @@
                         </div>
                     </form>
                     <div class="col-lg-4">
-
+                        @php
+                            dd($data_order);
+                        @endphp
                     </div>
                 </div>
             </div>
