@@ -24,7 +24,8 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        return view('penjualan.create_sale');
+        $produk = \App\Models\Tbl_product::all();
+        return view('penjualan.create_sale', ['data_produk' => $produk]);
     }
 
     /**
@@ -35,7 +36,7 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        
+        dd($request->all());        
     }
 
     /**

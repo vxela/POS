@@ -101,13 +101,13 @@ $(function() {
 
     var updateInterval = 3000; // in milliseconds
 
-    setInterval(function() {
-        var randomVal;
-        randomVal = getRandomInt(0, 100);
+    // setInterval(function() {
+    //     var randomVal;
+    //     randomVal = getRandomInt(0, 100);
 
-        sysLoad.data('easyPieChart').update(randomVal);
-        sysLoad.find('.percent').text(randomVal);
-    }, updateInterval);
+    //     sysLoad.data('easyPieChart').update(randomVal);
+    //     sysLoad.find('.percent').text(randomVal);
+    // }, updateInterval);
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -149,6 +149,26 @@ $(document).ready( function () {
             
         });
     });
-
-
-} );
+    $("#produk_id").ready(function(){
+        var price = $(this).find(':selected').data("price");
+        $("#produk_price").val(""+price);
+        var produkPrice = $("#produk_price").val();
+        var jmlProduk = $("#jml_produk").val();
+        var hrgTotal = produkPrice * jmlProduk;
+        $("#harga_total").val(""+hrgTotal);
+    });
+    $("#produk_id").on("change", function(){
+        var price = $(this).find(':selected').data("price");
+        $("#produk_price").val(""+price);
+        var produkPrice = $("#produk_price").val();
+        var jmlProduk = $("#jml_produk").val();
+        var hrgTotal = produkPrice * jmlProduk;
+        $("#harga_total").val(""+hrgTotal);
+    });
+    $("#jml_produk").keyup(function() {
+        var produkPrice = $("#produk_price").val();
+        var jmlProduk = $(this).val();
+        var hrgTotal = produkPrice * jmlProduk;
+        $("#harga_total").val(""+hrgTotal);
+    })
+});
