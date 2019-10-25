@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FpriceServiceProvider::class,
+        App\Providers\MushServiceProvider::class,
 
     ],
 
@@ -227,6 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Fprice' => App\Helpers\Fprice::class,
+        'Mush' => App\Helpers\Mush::class,
+
 
     ],
 

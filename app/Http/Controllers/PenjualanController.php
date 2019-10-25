@@ -31,25 +31,25 @@ class PenjualanController extends Controller
 
     public function storeTemp(Request $request) 
     {
+    //
+            // $temp = new \App\Models\Tbl_temp_po;
 
-        $temp = new \App\Models\Tbl_temp_po;
+            // $temp->nota_id = "THISISNOTAID";
+            // $temp->barang_id = $request->produk_id;
+            // $temp->jml_barang = $request->jml_produk;
+            // $temp->order_price = $request->harga_total;
+            // $temp->customer_id = $request->customer_name."1";
+            // $temp->user_id = auth()->user()->id;
+            // $temp->created_at = Carbon::now()->format('Y-m-d H:i:s');
+            // $temp->updated_at = Carbon::now()->format('Y-m-d H:i:s');
 
-        $temp->nota_id = "THISISNOTAID";
-        $temp->barang_id = $request->produk_id;
-        $temp->jml_barang = $request->jml_produk;
-        $temp->order_price = $request->harga_total;
-        $temp->customer_id = $request->customer_name."1";
-        $temp->user_id = auth()->user()->id;
-        $temp->created_at = Carbon::now()->format('Y-m-d H:i:s');
-        $temp->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+            // $temp->save();
 
-        $temp->save();
+            // $order = \App\Models\Tbl_temp_po::where('nota_id', '=', 'THISISNOTAID')->get();
 
-        $order = \App\Models\Tbl_temp_po::find($request->nota_id);
-
-        // return redirect()->back()->with($order);
-        $produk = \App\Models\Tbl_product::all();
-        return view('penjualan.create_sale', ['data_produk' => $produk, 'data_order' => $order]);
+            // dd($order);
+            // return redirect()->back()->with($order);
+    //
     }
     /**
      * Store a newly created resource in storage.
