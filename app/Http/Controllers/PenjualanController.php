@@ -44,6 +44,7 @@ class PenjualanController extends Controller
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ];
+
             if(Session::has('transKey')) {
                 $data['trans_session'] = session('transKey');
 
@@ -51,12 +52,22 @@ class PenjualanController extends Controller
                 session(['transKey' => Mush::getUniqStr()]);
                 $data['trans_session'] = session('transKey');
             }
+            
+            $produkby_id = \App\Models\Tbl_temp_po::where('barang_id', '=', $data['barang_id'])->get();
 
-            $porder = \App\Models\Tbl_temp_po::create($data);
+            if($produkby_id->count() != 0) {
+                $prd = \App\Models\Tbl_temp_po::find($produkby_id->id);
+                $jml_new = $prd->jml_barang+$data['barang_id'];
+                $jhrg_new = $jml_new*$prd->getProduk()->product_price;
+    
+                $prd->jml_barang = $jml_new;
+                $prd->order_price = $jhrg_new;
+            } else {
+                $porder = \App\Models\Tbl_temp_po::create($data);
+            }
             
             $order = \App\Models\Tbl_temp_po::where('trans_session', '=', session('transKey'))->get();
 
-            $produk = \App\Models\Tbl_product::all();
             return back()->with('data_produk', $produk)
                         ->with('data_order', $order)
                         ->with(['msg', 'success']);
