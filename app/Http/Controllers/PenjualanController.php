@@ -53,26 +53,36 @@ class PenjualanController extends Controller
                 $data['trans_session'] = session('transKey');
             }
             
-            $produkby_id = \App\Models\Tbl_temp_po::where('barang_id', '=', $data['barang_id'])->get();
+            $produkby_id = \App\Models\Tbl_temp_po::where('barang_id', '=', $data['barang_id'])->first();
 
-            if($produkby_id->count() != 0) {
+            // dd($produkby_id);
+
+            if($produkby_id == null || $produkby_id->count() == 0) {
+
+                $porder = \App\Models\Tbl_temp_po::create($data);                
+
+            } else {
+
                 $prd = \App\Models\Tbl_temp_po::find($produkby_id->id);
-                $jml_new = $prd->jml_barang+$data['barang_id'];
+
+                $jml_new = $prd->jml_barang+$data['jml_barang'];
                 $jhrg_new = $jml_new*$prd->getProduk()->product_price;
     
                 $prd->jml_barang = $jml_new;
                 $prd->order_price = $jhrg_new;
-            } else {
-                $porder = \App\Models\Tbl_temp_po::create($data);
+    
+                $prd->save();
+                
             }
             
             $order = \App\Models\Tbl_temp_po::where('trans_session', '=', session('transKey'))->get();
-
+            
+            $produk = \App\Models\Tbl_product::all();
             return back()->with('data_produk', $produk)
                         ->with('data_order', $order)
                         ->with(['msg', 'success']);
-            // return view('penjualan.create_sale', ['data_produk' => $produk, 'data_order' => $order]);
-    //
+            
+                        
     }
 
     public function flushSs() {
