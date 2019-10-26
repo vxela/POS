@@ -135,20 +135,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (isset($data_order) == false)
-                                            
+                                            @if (!empty($data_order))
                                                 @foreach ($data_order as $order)
                                                 <tr>
                                                     <td>.</td>
-                                                    <td>{{$order->barang_id}}</td>
+                                                    <td>{{$order->getProduk()->product_name}}</td>
                                                     <td>{{$order->jml_barang}}</td>
-                                                    <td>{{$order->order_price}}</td>
-                                                    <td>{{$order->order_price}}</td>
+                                                    <td>{{number_format($order->getProduk()->product_price)}}</td>
+                                                    <td>{{number_format($order->order_price)}}</td>
                                                 </tr>
                                                 @endforeach
                                             @endif
                                         </tbody>
                                     </table>
+                                </div>
+                                <div>
+                                    @php
+                                        dd(session()->all());
+                                    @endphp
                                 </div>
                             </div>
 

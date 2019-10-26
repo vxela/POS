@@ -28,7 +28,8 @@ class PenjualanController extends Controller
     public function create()
     {
         $produk = \App\Models\Tbl_product::all();
-        return view('penjualan.create_sale', ['data_produk' => $produk]);
+        $order = \App\Models\Tbl_temp_po::where('trans_session', '=', session('transKey'))->get();
+        return view('penjualan.create_sale', ['data_produk' => $produk, 'data_order' => $order]);
     }
 
     public function storeTemp(Request $request) 
@@ -54,16 +55,20 @@ class PenjualanController extends Controller
             $porder = \App\Models\Tbl_temp_po::create($data);
             
             $order = \App\Models\Tbl_temp_po::where('trans_session', '=', session('transKey'))->get();
-            if($order->isEmpty()) {
-                
-                $produk = \App\Models\Tbl_product::all();
-                return view('penjualan.create_sale', ['data_produk' => $produk]);
-            } 
-            else {
-                $produk = \App\Models\Tbl_product::all();
-                return view('penjualan.create_sale', ['data_produk' => $produk, 'data_order' => $order]);                
-            }
+
+            $produk = \App\Models\Tbl_product::all();
+            return back()->with('data_produk', $produk)
+                        ->with('data_order', $order)
+                        ->with(['msg', 'success']);
+            // return view('penjualan.create_sale', ['data_produk' => $produk, 'data_order' => $order]);
     //
+    }
+
+    public function flushSs() {
+        Session::forget('transKey');
+        Session::flush();
+
+        return redirect('/login');
     }
     /**
      * Store a newly created resource in storage.
