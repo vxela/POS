@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Session;
+use Mush;
 
 class PenjualanController extends Controller
 {
@@ -31,24 +33,36 @@ class PenjualanController extends Controller
 
     public function storeTemp(Request $request) 
     {
-    //
-            // $temp = new \App\Models\Tbl_temp_po;
+        $data = [
+            'nota_id' => "THISISNOTAID",
+            'barang_id' => $request->produk_id,
+            'jml_barang' => $request->jml_produk,
+            'order_price' => $request->harga_total,
+            'customer_id' => $request->customer_name."1",
+            'user_id' => auth()->user()->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ];
+            if(Session::has('transKey')) {
+                $data['trans_session'] = session('transKey');
 
-            // $temp->nota_id = "THISISNOTAID";
-            // $temp->barang_id = $request->produk_id;
-            // $temp->jml_barang = $request->jml_produk;
-            // $temp->order_price = $request->harga_total;
-            // $temp->customer_id = $request->customer_name."1";
-            // $temp->user_id = auth()->user()->id;
-            // $temp->created_at = Carbon::now()->format('Y-m-d H:i:s');
-            // $temp->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+            } else {
+                session(['transKey' => Mush::getUniqStr()]);
+                $data['trans_session'] = session('transKey');
+            }
 
-            // $temp->save();
-
-            // $order = \App\Models\Tbl_temp_po::where('nota_id', '=', 'THISISNOTAID')->get();
-
-            // dd($order);
-            // return redirect()->back()->with($order);
+            $porder = \App\Models\Tbl_temp_po::create($data);
+            
+            $order = \App\Models\Tbl_temp_po::where('trans_session', '=', session('transKey'))->get();
+            if($order->isEmpty()) {
+                
+                $produk = \App\Models\Tbl_product::all();
+                return view('penjualan.create_sale', ['data_produk' => $produk]);
+            } 
+            else {
+                $produk = \App\Models\Tbl_product::all();
+                return view('penjualan.create_sale', ['data_produk' => $produk, 'data_order' => $order]);                
+            }
     //
     }
     /**

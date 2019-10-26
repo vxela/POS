@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 class Mush {
 
-    public static function getUniqString() {
+    public static function getUniqStr() {
 
         return substr(
             base_convert(
@@ -24,7 +24,7 @@ class Mush {
         );
 
         // usage :
-        // Mush::getUniqString()
+        // Mush::getUniqStr()
     }
 
     

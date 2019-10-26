@@ -15,6 +15,7 @@ class CreateTempTablePo extends Migration
     {
         Schema::create('tbl_temp_pos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('trans_session');
             $table->string('nota_id');
             $table->integer('barang_id');
             $table->integer('jml_barang');

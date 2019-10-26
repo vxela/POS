@@ -128,36 +128,31 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                <th>Nama Barang</th>
+                                                <th>Jumlah</th>
+                                                <th>Harga</th>
+                                                <th>Harga Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Steve</td>
-                                                <td>Jobs</td>
-                                                <td>@steve</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Simon</td>
-                                                <td>Philips</td>
-                                                <td>@simon</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Jane</td>
-                                                <td>Doe</td>
-                                                <td>@jane</td>
-                                            </tr>
+                                            @if (isset($data_order) == false)
+                                            
+                                                @foreach ($data_order as $order)
+                                                <tr>
+                                                    <td>.</td>
+                                                    <td>{{$order->barang_id}}</td>
+                                                    <td>{{$order->jml_barang}}</td>
+                                                    <td>{{$order->order_price}}</td>
+                                                    <td>{{$order->order_price}}</td>
+                                                </tr>
+                                                @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
 
-                            {{Mush::getUniqString()}}
+                            {{Session::get('transKey')}}
                             <br>
                             sadad
                             aria-hiddenad
