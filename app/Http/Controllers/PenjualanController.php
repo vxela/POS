@@ -85,11 +85,18 @@ class PenjualanController extends Controller
                         
     }
 
+    public function updateTempTrans(Request $request) {
+
+
+
+    }
+
     public function flushSs() {
         Session::forget('transKey');
-        Session::flush();
+        
+        return back();
+        
 
-        return redirect('/login');
     }
     /**
      * Store a newly created resource in storage.

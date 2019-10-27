@@ -138,7 +138,7 @@
                                             @if (!empty($data_order))
                                                 @foreach ($data_order as $order)
                                                 <tr>
-                                                    <td>.</td>
+                                                    <td>{{$order->trans_session}}</td>
                                                     <td>{{$order->getProduk()->product_name}}</td>
                                                     <td>{{$order->jml_barang}}</td>
                                                     <td>{{number_format($order->getProduk()->product_price)}}</td>
