@@ -151,12 +151,12 @@
                                 </div>
                                 <div>
                                     @php
-                                        // dd(session()->all());
+                                        // dd(Session::all())
                                     @endphp
                                 </div>
                             </div>
 
-                            {{Session::get('transKey')}}
+                            {{-- {{Session::all()}} --}}
                             <br>
                             sadad
                             aria-hiddenad
