@@ -28,6 +28,9 @@
                                     <div class="col-lg-9">
                                         @csrf
                                         <input type="text" name="customer_name" class="form-control" placeholder="Customer Name">
+                                        @if(Session::has('transKey'))
+                                            <input type="hidden" name="trans_session">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row mb-1">
@@ -156,7 +159,7 @@
                                 </div>
                             </div>
 
-                            {{-- {{Session::all()}} --}}
+                            {{Session::get('transKey')}}
                             <br>
                             sadad
                             aria-hiddenad

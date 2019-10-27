@@ -53,7 +53,9 @@ class PenjualanController extends Controller
                 $data['trans_session'] = session('transKey');
             }
             
-            $produkby_id = \App\Models\Tbl_temp_po::where('barang_id', '=', $data['barang_id'])->first();
+            $produkby_id = \App\Models\Tbl_temp_po::where('barang_id', '=', $data['barang_id'])
+                                                    ->where('trans_session', '=', Session::get('transKey'))
+                                                    ->first();
 
             // dd($produkby_id);
 
@@ -93,7 +95,7 @@ class PenjualanController extends Controller
 
     public function flushSs() {
         Session::forget('transKey');
-        
+        \App\Models\Tbl_temp_po::truncate();
         return back();
         
 
