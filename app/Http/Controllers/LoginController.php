@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 
 class LoginController extends Controller
 {
@@ -39,6 +40,7 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
+        Session::forget('transKey');
         return redirect('/login');
     }
 }
