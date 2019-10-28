@@ -4,7 +4,7 @@
   
 <div class="row">
         <div class="col-lg-12">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                     <!-- PANEL HEADLINE -->
                 <div class="panel panel-headline">
                     <div class="panel-heading">
@@ -17,7 +17,7 @@
                                 <i class="fa fa-info-circle"></i> {{ session('status') }}
                             </div>
                         @endif
-                        <form action="/penjualan/storetemp" method="post">
+                        <form action="{{ route('potemp.store') }}" method="post">
                             <div class="col-lg-12">
                                 <div class="row mb-1">
                                     <div class="col-lg-3">
@@ -109,7 +109,7 @@
                 <!-- END PANEL HEADLINE -->
 
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="panel panel-headline">
                     <div class="panel-heading">
                         <h3 class="panel-title">Preorder List</h3>
@@ -127,30 +127,54 @@
                             </div> --}}
                             <div class="row">
                                 <div class="col-md-12">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nama Barang</th>
-                                                <th>Jumlah</th>
-                                                <th>Harga</th>
-                                                <th>Harga Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if (!empty($data_order))
-                                                @foreach ($data_order as $order)
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed">
+                                            <thead>
                                                 <tr>
-                                                    <td>{{$order->trans_session}}</td>
-                                                    <td>{{$order->getProduk()->product_name}}</td>
-                                                    <td>{{$order->jml_barang}}</td>
-                                                    <td>{{number_format($order->getProduk()->product_price)}}</td>
-                                                    <td>{{number_format($order->order_price)}}</td>
+                                                    <th>#</th>
+                                                    <th>Nama Barang</th>
+                                                    <th>Jumlah</th>
+                                                    <th>Harga</th>
+                                                    <th>Subtotal</th>
+                                                    <th>-</th>
                                                 </tr>
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                @if (!empty($data_order))
+                                                @php
+                                                    $total = 0;
+                                                @endphp
+                                                    @foreach ($data_order as $order)
+                                            <form class="trans_form" action="{{'/penjualan/potemp/'.$order->id}}" method="POST">
+                                                        <tr>
+                                                            <td>{{$loop->iteration}}</td>
+                                                            <td>{{$order->getProduk()->product_name}}</td>
+                                                            <td width="15%">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <input class="trans_input" type="number" name="jml_barang" id="jml_barang" value="{{$order->jml_barang}}" step="1">
+                                                                {{-- <input type="number" class="trans_input" name="jml_barang" id="jml_barang" value="{{$order->jml_barang}}" step="1"> --}}
+                                                            </td>
+                                                            <td>{{number_format($order->getProduk()->product_price)}}</td>
+                                                            <td>{{number_format($order->order_price)}}</td>
+                                                            <td width="10%" style="padding-left:0px">
+                                                                <button type="submit" class="btn btn-info btn-xs pd-less-sm"><i class="lnr lnr-pencil"></i></button>
+                                                                <a href="submit" class="btn btn-danger btn-xs pd-less-sm"><i class="lnr lnr-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    </form>
+                                                        @php
+                                                        $total = $total+$order->order_price;
+                                                    @endphp
+                                                    @endforeach
+                                                    <tr>
+                                                        <th colspan="4">Total</th>
+                                                        <th>{{number_format($total)}}</th>
+                                                    </tr>
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div>
                                     @php
@@ -160,6 +184,7 @@
                             </div>
 
                             {{Session::get('transKey')}}
+                            {{$total}}
                             <br>
                             sadad
                             aria-hiddenad

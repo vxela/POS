@@ -19,6 +19,10 @@
     padding: 5px 10px !important;
 }
 
+.pd-less-sm {
+    padding: 0px 2px !important;
+}
+
 .dt-bt {
     align-items: center;
 }
@@ -51,4 +55,14 @@
 .img_pr {
     width: 100%;
     max-width: 100%
+}
+
+.trans_form {
+    display: inline;
+    width: 100%;
+}
+
+.trans_input {
+    width: 100%;
+    text-align: right;
 }

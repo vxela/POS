@@ -35,7 +35,9 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
     Route::get('/penjualan/flushss', 'PenjualanController@flushSs');
     Route::resource('/penjualan', 'PenjualanController');
     Route::get('/penjualan/{id}/delete', 'PenjualanController@delete');
-    Route::post('/penjualan/storetemp', 'PenjualanController@storeTemp');
+    Route::resource('penjualan/potemp', 'poTempController');
+    // Route::post('/penjualan/storetemp', 'PenjualanController@storeTemp');
+    // Route::post('/penjualan/{id}/updatepreorder', 'PenjualanController@updatepreorder');
 });
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang']], function () {
