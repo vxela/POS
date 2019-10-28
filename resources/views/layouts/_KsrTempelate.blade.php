@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="{{asset('kloro/vendor/chartist/css/chartist-custom.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/datatable/datatables.min.css')}}">
+	<link rel="stylesheet" href="{{asset('kloro/css/jquery-confirm.min.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('kloro/css/main.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -109,7 +110,7 @@
 	<script src="{{asset('kloro/datatable/datatables.min.js')}}"></script>
 	<script src="{{asset('kloro/js/jsFile.js')}}"></script>
 	<script src="{{asset('croper/jquery-cropper.js')}}"></script>
-	<script src="{{asset('croper/jquery-cropper.js')}}"></script>
+	<script src="{{asset('kloro/js/jquery-confirm.min.js')}}"></script>
 </body>
 
 </html>

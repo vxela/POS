@@ -171,4 +171,28 @@ $(document).ready( function () {
         var hrgTotal = produkPrice * jmlProduk;
         $("#harga_total").val(""+hrgTotal);
     })
+
+    $(document).on('click', '.del_preorder_unit', function(){
+        var id_pot = $(this).data("id");
+        var nama_produk = $(this).data("nama_produk");
+        var aurl = '/penjualan/potemp/'+id_pot;
+        $.confirm({
+            title: 'Hapus item : '+ nama_produk,
+            content: 'Yakin ?',
+            type: 'red',
+            buttons: {   
+                ok: {
+                    text: "ok!",
+                    btnClass: 'btn-primary',
+                    keys: ['enter'],
+                    action: function(){
+                        $(location).attr('href',aurl);
+                    }
+                },
+                cancel: function(){
+                    location.reload();
+                }
+            }
+        });
+    })
 });
