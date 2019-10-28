@@ -207,4 +207,9 @@ $(document).ready( function () {
             }
         });
     })
+
+    $('#s_customer').keyup(function(){
+        var data = $(this).val();
+        console.log(data);
+    });
 });

@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         @csrf
-                                        <input type="text" name="customer_name" class="form-control" placeholder="Customer Name">
+                                        <input type="text" name="customer_name" id="s_customer" class="form-control" placeholder="Customer Name">
                                         @if(Session::has('transKey'))
                                             <input type="hidden" name="trans_session">
                                         @endif
