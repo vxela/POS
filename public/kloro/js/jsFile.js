@@ -175,6 +175,7 @@ $(document).ready( function () {
     $(document).on('click', '.del_preorder_unit', function(){
         var id_pot = $(this).data("id");
         var nama_produk = $(this).data("nama_produk");
+        var csrf_token = $("meta[name='csrf-token']").attr("content");
         var aurl = '/penjualan/potemp/'+id_pot;
         $.confirm({
             title: 'Hapus item : '+ nama_produk,
@@ -186,7 +187,18 @@ $(document).ready( function () {
                     btnClass: 'btn-primary',
                     keys: ['enter'],
                     action: function(){
-                        $(location).attr('href',aurl);
+                        $.ajax({
+                            url: aurl,
+                            type: 'DELETE',
+                            data : {
+                                "id" : id_pot,
+                                "_token" : csrf_token
+                            },
+                            success: function(result) {
+                                // location.reload();
+                                location.reload();  
+                            }
+                        });
                     }
                 },
                 cancel: function(){

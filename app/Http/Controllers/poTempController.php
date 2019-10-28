@@ -137,6 +137,14 @@ class poTempController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $potm = \App\Models\Tbl_temp_po::find($id);
+        
+        $potm->forceDelete();
+
+        return response()->json([
+            'success' => 'Record deleted successfully!'
+        ]);
+        
     }
 }
