@@ -27,8 +27,13 @@
                                     </div>
                                     <div class="col-lg-9 no_padding">
                                         @csrf
-                                        <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name" autocomplete="off">
-                                        <input type="hidden" name="id_customer" value="0">
+                                        @if(session('customer'))
+                                            <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name" autocomplete="off" value="{{Session::get('customer.cust_name')}}" readonly>
+                                            <input type="hidden" name="id_customer" value="{{Session::get('customer.cust_id')}}">
+                                        @else
+                                            <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name" autocomplete="off">
+                                            <input type="hidden" name="id_customer" value="0">
+                                        @endif
                                         <div id="cutomerlist" class="dropdown">
                                             
                                         </div>
@@ -101,7 +106,7 @@
                                             <div class="col-lg-6 no_padding text-right">
                                                 <div class="row">
                                                     <button type="button" class="btn btn-primary add_po_item"> Add To Table</button>
-                                                    <button type="submit1" class="btn btn-primary"> Simpan</button>
+                                                    <button type="submit" class="btn btn-primary"> Simpan</button>
                                                 </div>
                                             </div>
                                         </div>

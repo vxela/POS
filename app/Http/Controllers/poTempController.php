@@ -51,6 +51,9 @@ class poTempController extends Controller
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ];
 
+        $cust_name = $request->customer_name;
+        $cust_id = $request->id_customer;
+
             if(Session::has('transKey')) {
                 $data['trans_session'] = session('transKey');
 
@@ -86,6 +89,10 @@ class poTempController extends Controller
             $order = \App\Models\Tbl_temp_po::where('trans_session', '=', session('transKey'))->get();
             
             $produk = \App\Models\Tbl_product::all();
+
+            Session::put('customer.cust_name', $cust_name);
+            Session::put('customer.cust_id', $cust_id);
+
             return back()->with('data_produk', $produk)
                         ->with('data_order', $order)
                         ->with(['msg', 'success']);

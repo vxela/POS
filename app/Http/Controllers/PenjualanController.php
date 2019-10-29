@@ -95,6 +95,7 @@ class PenjualanController extends Controller
 
     public function flushSs() {
         Session::forget('transKey');
+        Session::forget('customer');
         \App\Models\Tbl_temp_po::truncate();
         return back();
         
