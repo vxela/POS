@@ -249,6 +249,8 @@ $(document).ready( function () {
             $('#s_customer').addClass('ferror');
 
 			toastr['error']('Customer data kosong !!');
+        } else {
+            $('.add_po_item').attr('type', 'submit');
         }
         console.log($(this).closest('form').serialize());
     });

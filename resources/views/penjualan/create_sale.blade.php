@@ -105,8 +105,8 @@
                                             </div>
                                             <div class="col-lg-6 no_padding text-right">
                                                 <div class="row">
-                                                    <button type="button" class="btn btn-primary add_po_item"> Add To Table</button>
-                                                    <button type="submit" class="btn btn-primary"> Simpan</button>
+                                                    {{-- <button type="button" class="btn btn-primary add_po_item"> Add To Table</button> --}}
+                                                    <button type="button" class="btn btn-primary add_po_item"> Simpan</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,7 +195,19 @@
                                     @endphp
                                 </div>
                             </div>
-
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button type="reset" class="btn btn-default"> Delete</button>
+                                    </div>
+                                    <div class="col-lg-6 text-right">
+                                        <div class="row">
+                                            {{-- <button type="button" class="btn btn-primary add_po_item"> Add To Table</button> --}}
+                                            <button type="button" class="btn btn-primary add_po_item"> Simpan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             {{Session::get('transKey')}}
                             {{$total}}
                             <br>
