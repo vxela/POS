@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-lg-9 no_padding">
                                         @csrf
-                                        <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name">
+                                        <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name" autocomplete="off">
                                         <input type="hidden" name="id_customer" value="0">
                                         <div id="cutomerlist" class="dropdown">
                                             
@@ -99,7 +99,10 @@
                                                 <button type="reset" class="btn btn-default"> Reset</button>
                                             </div>
                                             <div class="col-lg-6 no_padding text-right">
-                                                <button type="submit" class="btn btn-primary"> Simpan</button>
+                                                <div class="row">
+                                                    <button type="button" class="btn btn-primary add_po_item"> Add To Table</button>
+                                                    <button type="submit1" class="btn btn-primary"> Simpan</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

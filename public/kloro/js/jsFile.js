@@ -221,7 +221,7 @@ $(document).ready( function () {
                     query:dataIn,
                     _token:_token},
                 success : function(result) {
-                    $('#cutomerlist').fadeIn();
+                    $('#cutomerlist').show();
                     $('#cutomerlist').html(result);
                     // console.log(result);
                 }
@@ -229,12 +229,46 @@ $(document).ready( function () {
 
         }
     });
-
+    
     $(document).on('click', '.list_cust', function(){
         var cust_id = $(this).data('id_cust');
         var cust_name = $(this).data('name_cust');
         $('input[name="id_customer"]').val(cust_id);
         $('#s_customer').val(cust_name);
-        $('#cutomerlist').fadeOut();
+        $('#cutomerlist').hide();
+    });
+
+    $('*').click(function(){
+        $('#cutomerlist').hide();
+    });
+
+    $(document).on('click', '.add_po_item', function() {
+        if($('#s_customer').val() == '') {
+            
+
+            
+            $('#s_customer').addClass('ferror');
+            // $('#s_customer').prop('title', 'Data tidak boleh kosong!!');
+            // $('#s_customer').attr('data-toggle', 'tooltip');
+            // $('#s_customer').attr('data-placement', 'bottom');
+            // $('[data-toggle="tooltip"]').tooltip('show');
+
+
+            // $message = 'costumer data empty';
+            // $context = 'error';
+            // $position = 'top-right';
+
+			// toastr.options = {
+            //     "closeButton": true,
+            //     "positionClass": "toast-top-center",
+            //     "showDuration": "100",
+            //     "hideDuration": "100",
+            //     "timeOut": "2000",
+            //     "extendedTimeOut": "500",
+			// }
+
+			toastr['error']('Customer data kosong !!');
+        }
+        console.log($(this).closest('form').serialize());
     });
 });
