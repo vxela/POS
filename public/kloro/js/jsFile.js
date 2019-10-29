@@ -209,7 +209,29 @@ $(document).ready( function () {
     })
 
     $('#s_customer').keyup(function(){
-        var data = $(this).val();
-        console.log(data);
+        var dataIn = $(this).val();
+        // $('#cutomerlist').fadeIn();
+        // $('#cutomerlist').html('<ul class="dropdown-menu" style="display:block; position:absolute"><li>'+dataIn+'</li>'+'<li>'+dataIn+'</li>'+'<li>'+dataIn+'</li>'+'<li>'+dataIn+'</li></ul>');
+        if(dataIn != '') {
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"/customer/search",
+                method : "POST",
+                data : {
+                    query:dataIn,
+                    _token:_token},
+                success : function(result) {
+                    $('#cutomerlist').fadeIn();
+                    $('#cutomerlist').html(result);
+                    // console.log(result);
+                }
+            });
+
+        }
+    });
+
+    $(document).on('click', '.list_cust', function(){
+        var cust_id = $(this).data('id_cust');
+        console.log(cust_id);
     });
 });

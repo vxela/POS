@@ -27,10 +27,10 @@
                                     </div>
                                     <div class="col-lg-9">
                                         @csrf
-                                        <input type="text" name="customer_name" id="s_customer" class="form-control" placeholder="Customer Name">
-                                        @if(Session::has('transKey'))
-                                            <input type="hidden" name="trans_session">
-                                        @endif
+                                        <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name">
+                                        <div id="cutomerlist" class="dropdown">
+                                            
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
