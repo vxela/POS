@@ -213,6 +213,7 @@ $(document).ready( function () {
         // $('#cutomerlist').fadeIn();
         // $('#cutomerlist').html('<ul class="dropdown-menu" style="display:block; position:absolute"><li>'+dataIn+'</li>'+'<li>'+dataIn+'</li>'+'<li>'+dataIn+'</li>'+'<li>'+dataIn+'</li></ul>');
         if(dataIn != '') {
+            $('#s_customer').removeClass('ferror');
             var _token = $('input[name="_token"]').val();
             $.ajax({
                 url:"/customer/search",
@@ -245,27 +246,7 @@ $(document).ready( function () {
     $(document).on('click', '.add_po_item', function() {
         if($('#s_customer').val() == '') {
             
-
-            
             $('#s_customer').addClass('ferror');
-            // $('#s_customer').prop('title', 'Data tidak boleh kosong!!');
-            // $('#s_customer').attr('data-toggle', 'tooltip');
-            // $('#s_customer').attr('data-placement', 'bottom');
-            // $('[data-toggle="tooltip"]').tooltip('show');
-
-
-            // $message = 'costumer data empty';
-            // $context = 'error';
-            // $position = 'top-right';
-
-			// toastr.options = {
-            //     "closeButton": true,
-            //     "positionClass": "toast-top-center",
-            //     "showDuration": "100",
-            //     "hideDuration": "100",
-            //     "timeOut": "2000",
-            //     "extendedTimeOut": "500",
-			// }
 
 			toastr['error']('Customer data kosong !!');
         }
