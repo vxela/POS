@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotaTable extends Migration
+class CreateFakturTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNotaTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_nota', function (Blueprint $table) {
+        Schema::create('tbl_fakturs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('nota_number');
             $table->integer('customer_id');
@@ -32,6 +32,6 @@ class CreateNotaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nota');
+        Schema::dropIfExists('tbl_fakturs');
     }
 }
