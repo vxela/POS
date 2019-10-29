@@ -28,6 +28,7 @@
                                     <div class="col-lg-9">
                                         @csrf
                                         <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name">
+                                        <input type="hidden" name="id_customer" value="">
                                         <div id="cutomerlist" class="dropdown">
                                             
                                         </div>

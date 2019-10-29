@@ -232,6 +232,9 @@ $(document).ready( function () {
 
     $(document).on('click', '.list_cust', function(){
         var cust_id = $(this).data('id_cust');
-        console.log(cust_id);
+        var cust_name = $(this).data('name_cust');
+        $('input[name="id_customer"]').val(cust_id);
+        $('#s_customer').val(cust_name);
+        $('#cutomerlist').fadeOut();
     });
 });

@@ -94,7 +94,7 @@ class CustomerController extends Controller
             $outPut = '<ul class="dropdown-menu" style=" width:100%; display:block; position:absolute; max-height:300px; overflow:auto;">';
 
             foreach ($data as $row) {
-                $outPut .= '<li><a href="#" id="list_cust" data-id_cust="'.$row->id.'" class="notification-item list_cust"><div>'.$row->id.'  |  '.$row->ctm_name.'</div><div>here</div></a></li>';
+                $outPut .= '<li><a href="#" id="list_cust" data-id_cust="'.$row->id.'" data-name_cust="'.$row->ctm_name.'" class="notification-item list_cust"><div>'.$row->id.'  |  '.$row->ctm_name.'</div><div>here</div></a></li>';
             }
 
             $outPut .= '</ul>';
