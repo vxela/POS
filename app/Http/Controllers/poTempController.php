@@ -35,6 +35,9 @@ class poTempController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request) {
+    //     dd($request->all());
+    // }
     public function store(Request $request)
     {
         $data = [
@@ -42,7 +45,7 @@ class poTempController extends Controller
             'barang_id' => $request->produk_id,
             'jml_barang' => $request->jml_produk,
             'order_price' => $request->harga_total,
-            'customer_id' => $request->customer_name."1",
+            'customer_id' => $request->id_customer,
             'user_id' => auth()->user()->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

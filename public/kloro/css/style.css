@@ -15,6 +15,10 @@
     background-color:#f1f1f1;
 }
 
+.no_padding {
+    padding : 0px 0px;
+}
+
 .pd-less {
     padding: 5px 10px !important;
 }

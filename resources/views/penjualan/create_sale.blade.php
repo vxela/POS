@@ -20,27 +20,27 @@
                         <form action="{{ route('potemp.store') }}" method="post">
                             <div class="col-lg-12">
                                 <div class="row mb-1">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 no_padding">
                                         <strong>
                                             Nama Customer
                                         </strong>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 no_padding">
                                         @csrf
                                         <input type="text" name="customer_name" id="s_customer" class="form-control dropdown" placeholder="Customer Name">
-                                        <input type="hidden" name="id_customer" value="">
+                                        <input type="hidden" name="id_customer" value="0">
                                         <div id="cutomerlist" class="dropdown">
                                             
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 no_padding">
                                         <strong>
                                             Nama Produk
                                         </strong>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 no_padding">
                                         <select class="form-control" name="produk_id" id="produk_id">
                                             @foreach ($data_produk as $produk)
                                             @if($produk->id == 1)
@@ -53,57 +53,61 @@
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 no_padding">
                                         <strong>
                                             Harga Satuan
                                         </strong>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 no_padding">
                                         <input type="number" id="produk_price" name="produk_price" class="form-control" placeholder="Harga satuan">
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 no_padding">
                                         <strong>
                                             Jumlah Produk
                                         </strong>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 no_padding">
                                         <input type="number" name="jml_produk" id="jml_produk" value="1" class="form-control" placeholder="Jumlah produk">
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 no_padding">
                                         <strong>
                                             Harga Total
                                         </strong>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 no_padding">
                                         <input type="text" name="harga_total" id="harga_total" class="form-control" placeholder="Harga total">
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 no_padding">
                                         <strong>
                                             Status
                                         </strong>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 no_padding">
                                         dd
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-12">
-                                        <button type="reset" class="btn btn-default"> Reset</button>
-                                        <button type="submit" class="btn btn-primary"> Simpan</button>
+                                        <div class="row">
+                                            <div class="col-lg-6 no_padding">
+                                                <button type="reset" class="btn btn-default"> Reset</button>
+                                            </div>
+                                            <div class="col-lg-6 no_padding text-right">
+                                                <button type="submit" class="btn btn-primary"> Simpan</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
                         <div class="col-lg-4">
-                            @if (session('data_order'))
-                                dd($data_order)
-                            @endif
+                            ss
                         </div>
                     </div>
                 </div>
