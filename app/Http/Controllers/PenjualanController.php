@@ -115,7 +115,11 @@ class PenjualanController extends Controller
             Session::flash('msg', 'Something Wrong :(');
             return back();
         } else {
-            dd($request->all());        
+            $data_temp = \App\Models\Tbl_temp_po::where('trans_session', $trans_key)->get();
+            // foreach ($data_temp as $temp) {
+            //     // $temp->
+            // }
+
         }
     }
 
