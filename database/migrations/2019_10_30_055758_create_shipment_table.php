@@ -13,7 +13,7 @@ class CreateShipmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('Tbl_shipments', function (Blueprint $table) {
+        Schema::create('tbl_shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('nota_id');
             $table->integer('customer_id');
@@ -34,6 +34,6 @@ class CreateShipmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Tbl_shipments');
+        Schema::dropIfExists('tbl_shipments');
     }
 }

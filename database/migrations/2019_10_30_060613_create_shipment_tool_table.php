@@ -13,7 +13,7 @@ class CreateShipmentToolTable extends Migration
      */
     public function up()
     {
-        Schema::create('Tbl_shipment_tools', function (Blueprint $table) {
+        Schema::create('tbl_shipment_tools', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('jenis_tool', ['Mobil', 'Motor'])->default('Mobil');
             $table->string('tool_name');
@@ -31,6 +31,6 @@ class CreateShipmentToolTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Tbl_shipment_tools');
+        Schema::dropIfExists('tbl_shipment_tools');
     }
 }
