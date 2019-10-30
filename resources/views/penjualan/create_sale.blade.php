@@ -200,7 +200,11 @@
                                     <div class="col-lg-6 text-right">
                                         <div class="row">
                                             {{-- <button type="button" class="btn btn-primary add_po_item"> Add To Table</button> --}}
-                                            <button type="button" class="btn btn-primary add_po_item"> Simpan</button>
+                                            <form action="{{route('penjualan.store')}}" method="post">
+                                                <input type="hidden" name="trans_key">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary add_po_item">Simpan</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

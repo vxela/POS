@@ -109,7 +109,14 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());        
+        $trans_key = $request->trans_key;
+        if($trans_key != null || $trans_key == '') {
+            Session::flash('status', 'error');
+            Session::flash('msg', 'Something Wrong :(');
+            return back();
+        } else {
+            dd($request->all());        
+        }
     }
 
     /**
