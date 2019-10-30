@@ -15,7 +15,7 @@ class CreateShipmentToolTable extends Migration
     {
         Schema::create('tbl_shipment_tools', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('jenis_tool', ['Mobil', 'Motor'])->default('Mobil');
+            $table->enum('jenis_tool', ['Mobil', 'Mobil Pickup', 'Motor'])->default('Mobil');
             $table->string('tool_name');
             $table->enum('kondisi_tool', ['Baik', 'Rusak', 'Sedang'])->default('Baik');
             $table->text('keterangan_kondisi');
