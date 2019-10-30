@@ -11,13 +11,6 @@
                         <h3 class="panel-title">Tambah Penjualan</h3>
                     </div>
                     <div class="panel-body">
-                        
-                        {{-- @if (session('status'))
-                            <div class="alert alert-success alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <i class="fa fa-info-circle"></i> {{ session('status') }}
-                            </div>
-                        @endif --}}
                         <form action="{{ route('potemp.store') }}" method="post">
                             <div class="col-lg-12">
                                 <div class="row mb-1">

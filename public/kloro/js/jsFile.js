@@ -125,7 +125,8 @@ $(document).ready( function () {
         }
         else if(status == 'warning') {
             toastr.warning(msg, status + ' :');
-        } else {
+        } 
+        else if(status == 'success') {
             toastr.success(msg, status + ' :');
         }
     }

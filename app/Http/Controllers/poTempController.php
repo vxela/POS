@@ -171,6 +171,6 @@ class poTempController extends Controller
         Session::forget('transKey');
         Session::forget('customer');
 
-        return back()->with('status', 'Preorder Temp deleted!!');
+        return back()->with('xx', 'Preorder Temp deleted!!');
     }
 }
