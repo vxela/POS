@@ -19,8 +19,9 @@ class CreateFakturTable extends Migration
             $table->integer('customer_id');
             $table->integer('id_pengiriman')->nullable();
             $table->date('order_date');
+            $table->integer('order_price');
             $table->enum('status_pembayaran', ['lunas', 'utang', 'belum lunas']);
-            $table->integer('sisa_pembayaran')->default(0);
+            $table->integer('sisa_pembayaran')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -15,9 +15,10 @@ class CreateTablePo extends Migration
     {
         Schema::create('tbl_pos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nota_id');
+            $table->integer('nota_id');
             $table->integer('barang_id');
             $table->integer('jml_barang');
+            $table->integer('diskon_satuan');
             $table->integer('order_price');
             $table->integer('customer_id');
             $table->integer('user_id');
