@@ -27,5 +27,10 @@ class Mush {
         // Mush::getUniqStr()
     }
 
+    public static function showNotif($status, $msg){
+        echo "<div id='m_notif' data-flash_type='".$status."' data-flash_msg='".$msg."'>
+        </div>";
+    }
+
     
 }

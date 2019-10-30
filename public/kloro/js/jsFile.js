@@ -116,6 +116,20 @@ $(function() {
 });
 
 $(document).ready( function () {
+    
+    if($('#m_notif').data('flash_type') != '' && $('#m_notif').data('flash_msg') != '') {
+        let status = $('#m_notif').data('flash_type');
+        let msg = $('#m_notif').data('flash_msg');
+        if(status === 'error') {
+            toastr.error(msg);
+        }
+        else if(status == 'warning') {
+            toastr.warning(msg, status + ' :');
+        } else {
+            toastr.success(msg, status + ' :');
+        }
+    }
+
     $('#table_id').DataTable();
     
     function readURL(input){
