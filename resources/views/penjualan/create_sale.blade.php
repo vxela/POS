@@ -198,7 +198,7 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <button type="reset" class="btn btn-default"> Delete</button>
+                                        <a href="{{ route('potemp.clear')}}" class="btn btn-default"> Delete</a>
                                     </div>
                                     <div class="col-lg-6 text-right">
                                         <div class="row">

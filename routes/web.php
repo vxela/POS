@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
     Route::get('/penjualan/flushss', 'PenjualanController@flushSs');
     Route::resource('/penjualan', 'PenjualanController');
     Route::get('/penjualan/{id}/delete', 'PenjualanController@delete');
+    Route::get('/penjualan/potemp/clear', 'poTempController@clear_temp')->name('potemp.clear');
     Route::resource('penjualan/potemp', 'poTempController');
     Route::post('/customer/search', 'CustomerController@src_customer')->name('customer.search');
     // Route::post('/penjualan/storetemp', 'PenjualanController@storeTemp');

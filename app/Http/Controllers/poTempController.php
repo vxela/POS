@@ -157,4 +157,20 @@ class poTempController extends Controller
         ]);
         
     }
+
+    public function clear_temp() {
+        // echo "here you dude";
+        $data = \App\Models\Tbl_temp_po::where('trans_session', Session::get('transKey'))->get();
+
+        foreach ($data as $temp) {
+            $id = $temp->id;
+            $temp_po = \App\Models\Tbl_temp_po::find($id);
+            $temp_po->forceDelete();
+        }
+
+        Session::forget('transKey');
+        Session::forget('customer');
+
+        return back()->with('status', 'Preorder Temp deleted!!');
+    }
 }
