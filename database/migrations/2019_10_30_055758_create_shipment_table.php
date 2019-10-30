@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFakturTable extends Migration
+class CreateShipmentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateFakturTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_fakturs', function (Blueprint $table) {
+        Schema::create('Tbl_shipment', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('nota_number');
+            $table->integer('nota_id');
             $table->integer('customer_id');
-            $table->integer('status_pembayaran_id');
-            $table->integer('id_pengiriman')->nullable();
+            $table->integer('shipment_status_id');
+            $table->integer('shipment_vhicle_id');
+            $table->integer('driver_id');
+            $table->integer('helper_id');
+            $table->string('date_shipment');
             $table->integer('user_id');
-            $table->date('order_date');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateFakturTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_fakturs');
+        Schema::dropIfExists('Tbl_shipment');
     }
 }

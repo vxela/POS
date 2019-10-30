@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFakturTable extends Migration
+class CreateShipmentToolTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateFakturTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_fakturs', function (Blueprint $table) {
+        Schema::create('Tbl_shipment_tool', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('nota_number');
-            $table->integer('customer_id');
-            $table->integer('status_pembayaran_id');
-            $table->integer('id_pengiriman')->nullable();
+            $table->enum('jenis_tool', ['Mobil', 'Motor'])->default('Mobil');
+            $table->string('tool_name');
+            $table->enum('kondisi_tool', ['Baik', 'Rusak', 'Sedang'])->default('Baik');
+            $table->text('keterangan_kondisi');
             $table->integer('user_id');
-            $table->date('order_date');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateFakturTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_fakturs');
+        Schema::dropIfExists('Tbl_shipment_tool');
     }
 }
