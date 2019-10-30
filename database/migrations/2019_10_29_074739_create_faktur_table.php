@@ -17,10 +17,11 @@ class CreateFakturTable extends Migration
             $table->bigIncrements('id');
             $table->integer('nota_number');
             $table->integer('customer_id');
-            $table->integer('status_pembayaran_id');
             $table->integer('id_pengiriman')->nullable();
-            $table->integer('user_id');
             $table->date('order_date');
+            $table->enum('status_pembayaran', ['lunas', 'utang', 'belum lunas']);
+            $table->integer('sisa_pembayaran')->default(0);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
