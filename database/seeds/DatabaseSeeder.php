@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             KategoriProdukTableSeeder::class,
             PenjualanTableSeeder::class,
             ProduksiTableSeeder::class,
-            PenjualanTableSeeder::class
+            PenjualanTableSeeder::class,
+            CustomerTableSeeder::class
         ]);
     }
 }

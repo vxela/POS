@@ -13,7 +13,7 @@ class CreateStatusShipmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('Tbl_status_shipment', function (Blueprint $table) {
+        Schema::create('Tbl_status_shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('status_shipment');
             $table->integer('user_id');            
@@ -28,6 +28,6 @@ class CreateStatusShipmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Tbl_status_shipment');
+        Schema::dropIfExists('Tbl_status_shipments');
     }
 }
