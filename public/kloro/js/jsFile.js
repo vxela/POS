@@ -124,10 +124,10 @@ $(document).ready( function () {
             toastr.error(msg);
         }
         else if(status == 'warning') {
-            toastr.warning(msg, status + ' :');
+            toastr.warning(msg);
         } 
         else if(status == 'success') {
-            toastr.success(msg, status + ' :');
+            toastr.success(msg);
         }
     }
 

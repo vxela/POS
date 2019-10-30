@@ -11,6 +11,9 @@
                         <h3 class="panel-title">Tambah Penjualan</h3>
                     </div>
                     <div class="panel-body">
+                        @if(Session::has('status') && Session::has('msg'))
+                            {{Mush::showNotif(Session::get('status'), Session::get('msg'))}}
+                        @endif
                         <form action="{{ route('potemp.store') }}" method="post">
                             <div class="col-lg-12">
                                 <div class="row mb-1">

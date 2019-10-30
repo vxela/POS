@@ -54,6 +54,8 @@ class poTempController extends Controller
         $cust_name = $request->customer_name;
         $cust_id = $request->id_customer;
 
+        $produk_name = \App\Models\Tbl_product::find($data['barang_id'])->product_name;
+
             if(Session::has('transKey')) {
                 $data['trans_session'] = session('transKey');
 
@@ -93,9 +95,11 @@ class poTempController extends Controller
             Session::put('customer.cust_name', $cust_name);
             Session::put('customer.cust_id', $cust_id);
 
+            Session::flash('status', 'success');
+            Session::flash('msg', $produk_name.' success added!');
+
             return back()->with('data_produk', $produk)
-                        ->with('data_order', $order)
-                        ->with(['msg', 'success']);
+                        ->with('data_order', $order);
 
     }
 
@@ -171,6 +175,9 @@ class poTempController extends Controller
         Session::forget('transKey');
         Session::forget('customer');
 
-        return back()->with('xx', 'Preorder Temp deleted!!');
+        Session::flash('status', 'success');
+        Session::flash('msg', 'Delete data success');
+
+        return back();
     }
 }
