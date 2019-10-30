@@ -201,7 +201,7 @@
                                         <div class="row">
                                             {{-- <button type="button" class="btn btn-primary add_po_item"> Add To Table</button> --}}
                                             <form action="{{route('penjualan.store')}}" method="post">
-                                                <input type="hidden" name="trans_key">
+                                                <input type="hidden" name="trans_key" value="{{Session::get('transKey')}}">
                                                 @csrf
                                                 <button type="submit" class="btn btn-primary add_po_item">Simpan</button>
                                             </form>

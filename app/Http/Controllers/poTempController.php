@@ -41,7 +41,7 @@ class poTempController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'nota_id' => "THISISNOTAID",
+            
             'barang_id' => $request->produk_id,
             'jml_barang' => $request->jml_produk,
             'order_price' => $request->harga_total,

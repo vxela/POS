@@ -110,14 +110,15 @@ class PenjualanController extends Controller
     public function store(Request $request)
     {
         $trans_key = $request->trans_key;
-        if($trans_key != null || $trans_key == '') {
+        if(is_null($trans_key) || $trans_key == '') {
             Session::flash('status', 'error');
             Session::flash('msg', 'Something Wrong :(');
             return back();
         } else {
             $data_temp = \App\Models\Tbl_temp_po::where('trans_session', $trans_key)->get();
+            dd($data_temp);
             // foreach ($data_temp as $temp) {
-            //     // $temp->
+                
             // }
 
         }
