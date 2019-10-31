@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use Carbon\Carbon as Carbon;
 use Session;
 use Mush;
 
@@ -115,11 +115,37 @@ class PenjualanController extends Controller
             Session::flash('msg', 'Something Wrong :(');
             return back();
         } else {
+
+            $data['cust_id'] = Session::get('customer.cust_id');
+            // dd($request->all());
             $data_temp = \App\Models\Tbl_temp_po::where('trans_session', $trans_key)->get();
-            dd($data_temp);
-            // foreach ($data_temp as $temp) {
+            
+
+
+
+            foreach ($data_temp as $temp) {
+
+                $row_temp = \App\Models\Tbl_po::count();
                 
-            // }
+                if($row_temp > 0) {
+
+                    $nota = \App\Models\Tbl_po::all()->last();
+                    $nota_id = $nota->id + 1;
+
+                } else {
+
+                    $nota_id = 1;
+
+                }
+
+                $nota_number = Carbon::now()->format('Ymd').strval($nota_id);
+
+                $request->request->add(['nota_number' => $nota_number]);
+
+                dd($request->all());
+
+
+            }
 
         }
     }
