@@ -120,25 +120,34 @@ class PenjualanController extends Controller
             // dd($request->all());
             $data_temp = \App\Models\Tbl_temp_po::where('trans_session', $trans_key)->get();
             
+            $row_po = \App\Models\Tbl_po::count();
+            
+            if($row_po > 0) {
+                $nota = \App\Models\Tbl_po::all()->last();
+                $nota_id = $nota->id + 1;
+            } else {
+                $nota_id = 1;
+            }
+
+            $nota_number    = Carbon::now()->format('Ymd').strval($nota_id);
+            $cust_id        = Session::get('customer.cust_id');
 
 
 
             foreach ($data_temp as $temp) {
 
-                $row_temp = \App\Models\Tbl_po::count();
-                
-                if($row_temp > 0) {
-                    $nota = \App\Models\Tbl_po::all()->last();
-                    $nota_id = $nota->id + 1;
-                } else {
-                    $nota_id = 1;
-                }
 
                 $data_in = array(
-                    'nota_number'   => Carbon::now()->format('Ymd').strval($nota_id),
-                    'customer_id'   => Session::get('customer.cust_id'),
-                    
-                    'order_date'    => Carbon::
+                    'nota_number'   => $nota_number,
+                    'customer_id'   => $cust_id,
+                    'barang_id'     => $data_temp->barang_id,
+                    'jml_barang'    => $data_temp->jml_barang,
+                    'diskon_satuan' => 0,
+                    'order_price'   => $data_tep->order_price,
+                    'customer_id'   => $cust_id, 
+                    'user_id'       => auth()->user()->name,
+                    'created_at'    => Carbon::now(),
+                    'updated_at'    => Carbon::now()
 
                 );
                 // $nota_number = Carb'on::now()->format('Ymd').strval($nota_id);
