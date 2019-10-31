@@ -153,8 +153,11 @@ class PenjualanController extends Controller
 
                 $biaya_total = $biaya_total + $temp->order_price;
 
+                array_push($data, $data_po);
+
             }
             
+            dd($data_po);
             // add data into faktur table
             $data_nota = array(
                 'nota_number'       => $nota_number,
