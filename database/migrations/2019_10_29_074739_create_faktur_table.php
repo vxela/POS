@@ -15,7 +15,7 @@ class CreateFakturTable extends Migration
     {
         Schema::create('tbl_fakturs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('nota_number');
+            $table->string('nota_number');
             $table->integer('customer_id');
             $table->integer('id_pengiriman')->nullable();
             $table->date('order_date');

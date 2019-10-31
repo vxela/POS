@@ -120,16 +120,16 @@ class PenjualanController extends Controller
             // dd($request->all());
             $data_temp = \App\Models\Tbl_temp_po::where('trans_session', $trans_key)->get();
             
-            $row_po = \App\Models\Tbl_po::count();
+            $row_po = \App\Models\Tbl_faktur::count();
             
             if($row_po > 0) {
-                $nota = \App\Models\Tbl_po::max('id');
+                $nota = \App\Models\Tbl_faktur::max('id');
                 $nota_id = $nota + 1;
             } else {
                 $nota_id = 1;
             }
-
-            $nota_number    = Carbon::now()->format('Ymd').strval($nota_id);
+            $str_id = str_pad(strval($nota_id), 3, '0', STR_PAD_LEFT);
+            $nota_number    = Carbon::now()->format('Ymd').$str_id;
             $cust_id        = Session::get('customer.cust_id');
 
             $biaya_total    = 0;
@@ -146,7 +146,7 @@ class PenjualanController extends Controller
                     'diskon_satuan' => 0,
                     'order_price'   => $temp->order_price,
                     'customer_id'   => $cust_id, 
-                    'user_id'       => auth()->user()->name,
+                    'user_id'       => auth()->user()->id,
                     'created_at'    => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at'    => Carbon::now()->format('Y-m-d H:i:s')
 
@@ -165,14 +165,17 @@ class PenjualanController extends Controller
                 'order_price'       => $biaya_total,
                 'status_pembayaran' => 'utang',
                 'sisa_pembayaran'   => $biaya_total,
-                'user_id'           => auth()->user()->name
+                'user_id'           => auth()->user()->id
             );
+
+            $faktur = \App\Models\Tbl_faktur::create($data_nota);
+
             // add data into po table
 
 
 
             // dd($data);
-            dd($data_nota);
+            dd($faktur);
 
         }
     }
