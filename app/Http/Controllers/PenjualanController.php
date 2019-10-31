@@ -137,26 +137,26 @@ class PenjualanController extends Controller
             foreach ($data_temp as $temp) {
 
 
-                $data_in = array(
+                $data[] = array(
                     'nota_number'   => $nota_number,
                     'customer_id'   => $cust_id,
-                    'barang_id'     => $data_temp->barang_id,
-                    'jml_barang'    => $data_temp->jml_barang,
+                    'barang_id'     => $temp->barang_id,
+                    'jml_barang'    => $temp->jml_barang,
                     'diskon_satuan' => 0,
-                    'order_price'   => $data_tep->order_price,
+                    'order_price'   => $temp->order_price,
                     'customer_id'   => $cust_id, 
                     'user_id'       => auth()->user()->name,
-                    'created_at'    => Carbon::now(),
-                    'updated_at'    => Carbon::now()
+                    'created_at'    => Carbon::now()->format('Y-m-d H:i:s'),
+                    'updated_at'    => Carbon::now()->format('Y-m-d H:i:s')
 
                     
                 );
                 // $nota_number = Carb'on::now()->format('Ymd').strval($nota_id);
-                $data = array_push($data, $data_in);
+                // array_push($data_in, $data);
 
             }
 
-            dd($data_in);
+            dd($data);
 
         }
     }
