@@ -132,7 +132,7 @@ class PenjualanController extends Controller
             $nota_number    = Carbon::now()->format('Ymd').strval($nota_id);
             $cust_id        = Session::get('customer.cust_id');
 
-
+            $data = [];
 
             foreach ($data_temp as $temp) {
 
@@ -149,14 +149,14 @@ class PenjualanController extends Controller
                     'created_at'    => Carbon::now(),
                     'updated_at'    => Carbon::now()
 
+                    
                 );
                 // $nota_number = Carb'on::now()->format('Ymd').strval($nota_id);
-
-
-
-
+                $data = array_push($data, $data_in);
 
             }
+
+            dd($data_in);
 
         }
     }
