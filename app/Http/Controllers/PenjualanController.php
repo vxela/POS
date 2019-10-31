@@ -138,17 +138,16 @@ class PenjualanController extends Controller
 
             foreach ($data_temp as $temp) {
 
-                $data[] = array(
-                    'nota_number'   => $nota_number,
-                    'customer_id'   => $cust_id,
+                $data_po[] = array(
+                    'nota_id'   => $nota_id,
                     'barang_id'     => $temp->barang_id,
                     'jml_barang'    => $temp->jml_barang,
                     'diskon_satuan' => 0,
                     'order_price'   => $temp->order_price,
                     'customer_id'   => $cust_id, 
-                    'user_id'       => auth()->user()->id,
-                    'created_at'    => Carbon::now()->format('Y-m-d H:i:s'),
-                    'updated_at'    => Carbon::now()->format('Y-m-d H:i:s')
+                    'user_id'       => auth()->user()->id
+                    // 'created_at'    => Carbon::now()->format('Y-m-d H:i:s'),
+                    // 'updated_at'    => Carbon::now()->format('Y-m-d H:i:s')
 
                 );
 
@@ -171,12 +170,17 @@ class PenjualanController extends Controller
             $faktur = \App\Models\Tbl_faktur::create($data_nota);
 
             // add data into po table
-
+            $po = \App\Models\Tbl_po::create($data_po);
 
 
             // dd($data);
-            dd($faktur);
+            // dd($po);
 
+            $array = array(
+                $faktur->all(), $po->all()
+            );
+
+            print_r($array);
         }
     }
 
