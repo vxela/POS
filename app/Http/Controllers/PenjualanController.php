@@ -128,21 +128,23 @@ class PenjualanController extends Controller
                 $row_temp = \App\Models\Tbl_po::count();
                 
                 if($row_temp > 0) {
-
                     $nota = \App\Models\Tbl_po::all()->last();
                     $nota_id = $nota->id + 1;
-
                 } else {
-
                     $nota_id = 1;
-
                 }
 
-                $nota_number = Carbon::now()->format('Ymd').strval($nota_id);
+                $data_in = array(
+                    'nota_number'   => Carbon::now()->format('Ymd').strval($nota_id),
+                    'customer_id'   => Session::get('customer.cust_id'),
+                    
+                    'order_date'    => Carbon::
 
-                $request->request->add(['nota_number' => $nota_number]);
+                );
+                // $nota_number = Carb'on::now()->format('Ymd').strval($nota_id);
 
-                dd($request->all());
+
+
 
 
             }
