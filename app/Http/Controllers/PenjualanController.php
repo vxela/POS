@@ -123,8 +123,8 @@ class PenjualanController extends Controller
             $row_po = \App\Models\Tbl_po::count();
             
             if($row_po > 0) {
-                $nota = \App\Models\Tbl_po::all()->last();
-                $nota_id = $nota->id + 1;
+                $nota = \App\Models\Tbl_po::max('id');
+                $nota_id = $nota + 1;
             } else {
                 $nota_id = 1;
             }
@@ -132,10 +132,11 @@ class PenjualanController extends Controller
             $nota_number    = Carbon::now()->format('Ymd').strval($nota_id);
             $cust_id        = Session::get('customer.cust_id');
 
+            $biaya_total    = 0;
+
             $data = [];
 
             foreach ($data_temp as $temp) {
-
 
                 $data[] = array(
                     'nota_number'   => $nota_number,
@@ -149,14 +150,29 @@ class PenjualanController extends Controller
                     'created_at'    => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at'    => Carbon::now()->format('Y-m-d H:i:s')
 
-                    
                 );
-                // $nota_number = Carb'on::now()->format('Ymd').strval($nota_id);
-                // array_push($data_in, $data);
+
+                $biaya_total = $biaya_total + $temp->order_price;
 
             }
+            
+            // add data into faktur table
+            $data_nota = array(
+                'nota_number'       => $nota_number,
+                'customer_id'       => $cust_id,
+                'id_pengiriman'     => 0,
+                'order_date'        => Carbon::now()->format('Y-m-d'),
+                'order_price'       => $biaya_total,
+                'status_pembayaran' => 'utang',
+                'sisa_pembayaran'   => $biaya_total,
+                'user_id'           => auth()->user()->name
+            );
+            // add data into po table
 
-            dd($data);
+
+
+            // dd($data);
+            dd($data_nota);
 
         }
     }
