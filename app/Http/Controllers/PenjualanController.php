@@ -17,8 +17,8 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        $penjualan = \App\Models\Tbl_sale::all();
-        return view('penjualan.index', ['data_penjualan' => $penjualan]);
+        $faktur = \App\Models\Tbl_faktur::all();
+        return view('penjualan.index', ['data_faktur' => $faktur]);
     }
 
     /**
