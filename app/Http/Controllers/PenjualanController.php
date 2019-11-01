@@ -77,8 +77,10 @@ class PenjualanController extends Controller
                 $cust_id        = Session::get('customer.cust_id');
                 $biaya_total    = 0;
                 $data = array();
+                $id_temp = array();
     
                 foreach ($data_temp as $temp) {
+                    array_push($id_temp, $temp->id);
                     array_push($data, array(
                         'nota_number'   => $nota_number,
                         'barang_id'     => $temp->barang_id,
@@ -102,8 +104,18 @@ class PenjualanController extends Controller
                     'sisa_pembayaran'   => $biaya_total,
                     'user_id'           => auth()->user()->id
                 );
+
+
+
                 $faktur = \App\Models\Tbl_faktur::insert($data_nota);
                 $po = \App\Models\Tbl_po::insert($data);
+                $po_temp = \App\Models\Tbl_temp_po::where('trans_session', $trans_key)->forceDelete();
+                // for($i=0; $i<count($id_temp); $i++) {
+                //     $po_temp->forceDelete();
+                // }
+
+                Session::forget('transKey');
+                Session::forget('customer');
 
                 DB::commit();
 
