@@ -17,4 +17,9 @@ class Tbl_faktur extends Model
         'sisa_pembayaran',
         'user_id'
     ];
+
+    public function getCustomer() {
+        return Tbl_customer::where('id', $this->customer_id)->get();
+    }
+
 }
