@@ -119,10 +119,17 @@ class PenjualanController extends Controller
 
                 DB::commit();
 
+                Session::flash('status', 'success');
+                Session::flash('msg', 'Transaction Succes!');
+
+                return back();
+
             } catch (Exception $e) {
                 
                 DB::rollback;
                 report($e);
+                Session::flash('status', 'error');
+                Session::flash('msg', 'Transaction Failed');                
                 return false;
 
             }
