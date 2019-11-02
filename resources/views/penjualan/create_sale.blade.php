@@ -123,6 +123,32 @@
                 <div class="panel panel-headline">
                     <div class="panel-heading">
                         <h3 class="panel-title">Preorder List</h3>
+                        <div class="row panel-title no_padding">
+                                <div class="col-lg-6">
+                                        <div class="row">
+                                            <h5 class="po-head">
+                                                Nama : 
+                                            </h5>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="po-head">
+                                                Alamat : 
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 text-right">
+                                        <div class="row">
+                                            <h5 class="po-head">
+                                                Nota Number
+                                            </h5>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="po-head">
+                                                Date
+                                            </h5>
+                                        </div>
+                                    </div>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div id="preorder">
