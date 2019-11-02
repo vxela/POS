@@ -127,12 +127,17 @@
                                 <div class="col-lg-6">
                                         <div class="row">
                                             <h5 class="po-head">
-                                                Nama : 
+                                                Cv. Tirta Mangkok Merah 
                                             </h5>
                                         </div>
                                         <div class="row">
                                             <h5 class="po-head">
-                                                Alamat : 
+                                                Jl. Villa Tidar Indah No. 6
+                                            </h5>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="po-head">
+                                                {{Carbon\Carbon::now()->format('D d, M, Y')}}
                                             </h5>
                                         </div>
                                     </div>
