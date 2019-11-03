@@ -19,7 +19,7 @@ class Tbl_faktur extends Model
     ];
 
     public function getCustomer() {
-        return Tbl_customer::where('id', $this->customer_id)->get();
+        return Tbl_customer::where('id', $this->customer_id)->first();
     }
 
 }

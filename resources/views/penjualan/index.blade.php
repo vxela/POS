@@ -38,10 +38,10 @@
                                 @if (count($data_faktur)!=0)
                                     @foreach ($data_faktur as $faktur)
                                         <tr>
-                                            <td>{{$i}}</td>
+                                            <td>{{$i++}}</td>
                                             <td>{{$faktur->nota_number}}</td>
                                             <td>{{$faktur->getCustomer()->ctm_name}}</td>
-                                            <td>{{$faktur->order_price}}</td>
+                                            <td>{{"Rp. ".number_format($faktur->order_price).",00"}}</td>
                                             <td>{{$faktur->status_pembayaran}}</td>
                                             <td>{{$faktur->id}}</td>
                                         </tr>

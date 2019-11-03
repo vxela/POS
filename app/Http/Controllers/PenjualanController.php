@@ -67,8 +67,16 @@ class PenjualanController extends Controller
                 $row_po = \App\Models\Tbl_faktur::count();
     
                 if($row_po > 0) {
-                    $nota = \App\Models\Tbl_faktur::max('id');
-                    $nota_id = $nota + 1;
+                    $date = Carbon::now()->format('Ymd');
+                    $fktr = \App\Models\Tbl_faktur::orderBy('id', 'desc')->first();
+                    $date_ls = substr($fktr->nota_number,0,8);
+                    
+                    if($date == $date_ls){
+                        $nota = (int)substr($fktr->nota_number, 8, 3);
+                        $nota_id = $nota + 1;
+                    } else {
+                        $nota_id = 1;
+                    }
                 } else {
                     $nota_id = 1;
                 }
