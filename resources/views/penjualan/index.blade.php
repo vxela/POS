@@ -45,13 +45,16 @@
                                             <td>{{$faktur->status_pembayaran}}</td>
                                             <td>
                                                 <div class="dt-bt">
-                                                    <a class="btn btn-primary btn-xs pd-less" href="/produk/{{$faktur->id}}">
+                                                    <a class="btn btn-primary btn-xs pd-less" href="/penjualan/{{$faktur->id}}">
                                                         <i class="lnr lnr-eye"></i>
                                                     </a>
-                                                    <a class="btn btn-success btn-xs pd-less" href="/produk/{{$faktur->id}}/edit">
+                                                    <a class="btn btn-warning btn-xs pd-less" href="/penjualan/{{$faktur->id}}/delete">
+                                                        <i class="fa fa-print"></i>
+                                                    </a>
+                                                    <a class="btn btn-success btn-xs pd-less" href="/penjualan/{{$faktur->id}}/edit">
                                                         <i class="lnr lnr-pencil"></i>
                                                     </a>
-                                                    <a class="btn btn-danger btn-xs pd-less" href="/produk/{{$faktur->id}}/delete">
+                                                    <a class="btn btn-danger btn-xs pd-less" href="/penjualan/{{$faktur->id}}/delete">
                                                         <i class="fa fa-trash-o"></i>
                                                     </a>
                                                 </div>

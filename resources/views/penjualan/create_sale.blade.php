@@ -207,7 +207,7 @@
                                                             <td>{{number_format($order->order_price)}}</td>
                                                             <td width="10%" style="padding-left:0px">
                                                                 <button type="submit" class="btn btn-info btn-xs pd-less-sm"><i class="lnr lnr-pencil"></i></button>
-                                                            <button type="button" id="del_preorder_unit" class="btn btn-danger btn-xs pd-less-sm del_preorder_unit" data-id="{{$order->id}}" data-nama_produk="{{$order->getProduk()->product_name}}"><i class="lnr lnr-trash" data-csrf="{{ csrf_token() }}"></i></button>
+                                                                <button type="button" id="del_preorder_unit" class="btn btn-danger btn-xs pd-less-sm del_preorder_unit" data-id="{{$order->id}}" data-nama_produk="{{$order->getProduk()->product_name}}"><i class="lnr lnr-trash" data-csrf="{{ csrf_token() }}"></i></button>
                                                             </td>
                                                         </tr>
                                                     </form>
