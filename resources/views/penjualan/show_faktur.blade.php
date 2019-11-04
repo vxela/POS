@@ -39,9 +39,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <table class="table">
+                                    <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -59,13 +60,35 @@
                                                 <tr>
                                                     <td>{{$n++}}</td>
                                                     <td>{{$sale->getProduk()->product_name}}</td>
-                                                    <td>{{$sale->getProduk()->product_price}}</td>
-                                                    <td>{{$sale->jml_barang}}</td>
-                                                    <td>{{$sale->order_price}}</td>
+                                                    <td class="text-right">{{number_format($sale->getProduk()->product_price)}}</td>
+                                                    <td class="text-right"  >{{$sale->jml_barang}}</td>
+                                                    <td class="text-right">{{number_format($sale->order_price)}}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="4">Total bayar</th>
+                                                <th class="text-right">{{number_format($data_faktur->order_price)}}</th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="po-head">
+                                        Oleh : {{$data_faktur->getUser()->name}} <br>
+                                        @php
+                                            $dt = $data_faktur->created_at;
+                                            $arfdt = explode(" ", $dt);
+                                            $date = $arfdt[0];
+                                            $time = $arfdt[1];
+                                        @endphp
+                                        Tanggal : {{$date}} <br>
+                                        Waktu : {{$time}}
+                                    </h5>
                                 </div>
                             </div>
                         </div>

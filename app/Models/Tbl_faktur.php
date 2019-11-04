@@ -22,4 +22,8 @@ class Tbl_faktur extends Model
         return Tbl_customer::where('id', $this->customer_id)->first();
     }
 
+    public function getUser(){
+        return \App\User::where('id', $this->user_id)->first();
+    }
+
 }
