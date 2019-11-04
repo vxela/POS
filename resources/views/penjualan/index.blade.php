@@ -43,7 +43,19 @@
                                             <td>{{$faktur->getCustomer()->ctm_name}}</td>
                                             <td>{{"Rp. ".number_format($faktur->order_price).",00"}}</td>
                                             <td>{{$faktur->status_pembayaran}}</td>
-                                            <td>{{$faktur->id}}</td>
+                                            <td>
+                                                <div class="dt-bt">
+                                                    <a class="btn btn-primary btn-xs pd-less" href="/produk/{{$faktur->id}}">
+                                                        <i class="lnr lnr-eye"></i>
+                                                    </a>
+                                                    <a class="btn btn-success btn-xs pd-less" href="/produk/{{$faktur->id}}/edit">
+                                                        <i class="lnr lnr-pencil"></i>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-xs pd-less" href="/produk/{{$faktur->id}}/delete">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @else
