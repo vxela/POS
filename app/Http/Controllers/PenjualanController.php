@@ -154,7 +154,10 @@ class PenjualanController extends Controller
     {
         $faktur = \App\Models\Tbl_faktur::find($id);
         // echo $faktur->nota_number;
-        $sale = \App\Models\Tbl_po::where('nota_number', $faktur->nota_number);
+        $sale = \App\Models\Tbl_po::where('nota_number', $faktur->nota_number)->get();
+
+        // dd($sale);
+
         return view('penjualan.show_faktur', ['data_faktur' => $faktur, 'data_sale' => $sale]);
     }
 
