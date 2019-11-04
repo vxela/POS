@@ -51,8 +51,12 @@ class poTempController extends Controller
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ];
 
-        $cust_name = $request->customer_name;
         $cust_id = $request->id_customer;
+        
+        $cust_data = \App\Models\Tbl_customer::find($cust_id)->first();
+        $cust_name = $cust_data->ctm_name;
+        $cust_address = $cust_data->ctm_org_address;
+        $cust_phone = $cust_data->ctm_contact;
 
         $produk_name = \App\Models\Tbl_product::find($data['barang_id'])->product_name;
 
@@ -92,8 +96,10 @@ class poTempController extends Controller
             
             $produk = \App\Models\Tbl_product::all();
 
-            Session::put('customer.cust_name', $cust_name);
             Session::put('customer.cust_id', $cust_id);
+            Session::put('customer.cust_name', $cust_name);
+            Session::put('customer.cust_address', $cust_address);
+            Session::put('customer.cust_contact', $cust_phone);
 
             Session::flash('status', 'success');
             Session::flash('msg', $produk_name.' success added!');
