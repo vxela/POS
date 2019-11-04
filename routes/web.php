@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
     Route::get('/penjualan/potemp/clear', 'poTempController@clear_temp')->name('potemp.clear');
     Route::resource('penjualan/potemp', 'poTempController');
     Route::post('/customer/search', 'CustomerController@src_customer')->name('customer.search');
+    Route::get('/penjualan/print/nota/{id}', 'PenjualanController@notaPrint');
     // Route::post('/penjualan/storetemp', 'PenjualanController@storeTemp');
     // Route::post('/penjualan/{id}/updatepreorder', 'PenjualanController@updatepreorder');
 });

@@ -8,7 +8,14 @@
                     <!-- PANEL HEADLINE -->
                 <div class="panel panel-headline">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Data Penjualan</h3>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3 class="panel-title">Data Penjualan</h3>
+                            </div>
+                            <div class="col-lg-6 text-right">
+                                <a href="{{'/penjualan/print/nota/'.$data_faktur->id}}" class="btn btn-warning">Print Nota</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
                         @if(Session::has('status') && Session::has('msg'))
@@ -61,7 +68,7 @@
                                                     <td>{{$n++}}</td>
                                                     <td>{{$sale->getProduk()->product_name}}</td>
                                                     <td class="text-right">{{number_format($sale->getProduk()->product_price)}}</td>
-                                                    <td class="text-right"  >{{$sale->jml_barang}}</td>
+                                                    <td class="text-right">{{$sale->jml_barang}}</td>
                                                     <td class="text-right">{{number_format($sale->order_price)}}</td>
                                                 </tr>
                                             @endforeach

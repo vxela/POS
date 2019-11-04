@@ -161,6 +161,15 @@ class PenjualanController extends Controller
         return view('penjualan.show_faktur', ['data_faktur' => $faktur, 'data_sale' => $sale]);
     }
 
+    public function notaPrint($id) {
+
+        $faktur = \App\Models\Tbl_faktur::find($id);
+        $sale = \App\Models\Tbl_po::where('nota_number', $faktur->nota_number)->get();
+
+        return view('prints.nota_one', ['data_faktur' => $faktur, 'data_sale' => $sale]);
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
