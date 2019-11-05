@@ -110,7 +110,9 @@ class PenjualanController extends Controller
                     'order_price'       => $biaya_total,
                     'status_pembayaran' => 'utang',
                     'sisa_pembayaran'   => $biaya_total,
-                    'user_id'           => auth()->user()->id
+                    'user_id'           => auth()->user()->id,
+                    'created_at'        => Carbon::now()->format('Y-m-d H:i:s'),
+                    'updated_at'        => Carbon::now()->format('Y-m-d H:i:s')
                 );
 
 
