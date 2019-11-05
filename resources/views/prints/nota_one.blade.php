@@ -22,6 +22,7 @@
   <style>
     body {
       width: 75mm;
+      font-family: 'Arial', Narow, sans-serif;
     }
     @page {
       size: 2.95in 5.11in;
@@ -29,6 +30,9 @@
     @media print and (width: 75mm) and (height: 120mm) {
       @page {
          margin: 3mm;
+      }
+      body {
+          font-family: 'Arial', Narow, sans-serif;
       }
     }
     /*@media print {
@@ -54,13 +58,14 @@
 </head>
 <body class="recipt">
         <section class="sheet">
-        =========================
-        <div style="text-align:center; font-weight:bold; font-size : 14px">
-            ROXZON 
+        <div style="text-align:center; font-weight:bold; font-size : 14px; margin-top: 10px;">
+            ROXZON AIR MINERAL
             <br>
-            AIR MINUM MALANG <br>
+            <small>CV. Tirta Mangkok Merah</small><br>
+            <small style="font-weight: lighter;">Jl. Villa Tidar Indah, Sukun, Kota Malang</small><br>
+            <small style="font-weight: lighter;"> Telp : 0341-574333 | WA : 081331668913</small>
         </div>
-        =========================
+        <hr>
         <div style="text-align:left; font-weight:light; font-size : 12px">
             Nota ID     : {{$data_faktur->id}} <br>
             Nota Number : {{$data_faktur->nota_number}} <br>
@@ -72,7 +77,7 @@
             Alamat :{{$data_faktur->getCustomer()->ctm_org_address}}<br>
             Kontak :{{$data_faktur->getCustomer()->ctm_contact}}
         </div>
-        =========================
+        <hr>
         <div style="text-align:left; font-weight:light; font-size : 11px">
         <table style="width:100%;">
             <tr>
@@ -100,9 +105,10 @@
                 </tr>
         </table>
         </div>
-        =========================
+        <hr>
         <div style="text-align:left; font-weight:light; font-size : 11px; text-align:center;">
-            <h4>** TERIMA KASIH **</h4>
+            <h4 style="margin-bottom: 2px;">** TERIMA KASIH **</h4>
+            <h4 style="margin-top: 2px;">www.roxzon.com</h4><br>.
         </div>
         </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
