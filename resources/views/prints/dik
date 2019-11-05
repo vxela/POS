@@ -1,0 +1,19 @@
+    <style>
+        /* @media print {
+            body {
+                width: 75mm;
+                height: auto;
+            }
+        } */
+        /* output size */
+        @page { size: 75mm 100mm} 
+        /* sheet size */
+        body.receipt .sheet {font-family: 'Courier New', Courier, monospace}
+        @media print {
+            body.receipt { 
+                width: 58mm;
+                height: 100%;
+            }
+        }
+
+    </style>

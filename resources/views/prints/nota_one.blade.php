@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {{-- <link rel="stylesheet" href="{{asset('print/paper.css')}}"> --}}
-    <style>
-        @media print {
-            body {
-                width: 75mm;/*width of index card*/
-                height: auto;/*height of index card*/
-            }
-            /* etc */
-        }
 
-        /* @page { size: 75mm 100mm} */ /* output size */
-        /* body.receipt .sheet {font-family: 'Courier New', Courier, monospace} sheet size */
-        /* @media print { body.receipt { width: 58mm } } */
-    </style>
+<head>
+  <meta charset="utf-8">
+  <title>Receipt</title>
+
+  <!-- Normalize or reset CSS with your favorite library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+  <!-- Load paper.css for happy printing -->
+  <!-- <link rel="stylesheet" href="paper.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+  
+
+  <!-- Set page size here: A5, A4 or A3 -->
+  <!-- Set also "landscape" if you need -->
+  <style>@page { size: A5 landscape }</style>
+
+  <!-- Custom styles for this document -->
+  <link href='https://fonts.googleapis.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      width: 75mm;
+    }
+    @page {
+      size: 2.95in 5.11in;
+    }
+    @media print and (width: 75mm) and (height: 120mm) {
+      @page {
+         margin: 3mm;
+      }
+    }
+    /*@media print {
+      @page {
+        size: 2.95in 5.11in;
+        width: 75px;
+      }
+      body.recipt {
+        width: 75mm;
+      }
+    }*/
+
+    .recipt {
+      width: 75mm;
+      margin: auto;
+    }
+    .sheet {
+      padding-left: 5mm;
+      padding-right: 5mm;
+      text-align: center;
+    }
+  </style>
 </head>
 <body class="recipt">
-        <section class="sheet recipe">
+        <section class="sheet">
         =========================
         <div style="text-align:center; font-weight:bold; font-size : 14px">
             ROXZON 

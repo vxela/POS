@@ -13,7 +13,7 @@
                                 <h3 class="panel-title">Data Penjualan</h3>
                             </div>
                             <div class="col-lg-6 text-right">
-                                <a href="{{'/penjualan/print/nota/'.$data_faktur->id}}" class="btn btn-warning" target="_top">Print Nota</a>
+                                <a href="{{'/penjualan/print/nota/'.$data_faktur->id}}" class="btn btn-warning" target="_blank">Print Nota</a>
                             </div>
                         </div>
                     </div>
