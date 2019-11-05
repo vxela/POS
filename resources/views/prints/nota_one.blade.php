@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('print/paper.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('print/paper.css')}}"> --}}
     <style>
-        @page { size: 75mm 100mm} /* output size */
-        body.receipt .sheet {font-family: 'Courier New', Courier, monospace} /* sheet size */
-        @media print { body.receipt { width: 58mm } }
+        @media print {
+            body {
+                width: 75mm;/*width of index card*/
+                height: auto;/*height of index card*/
+            }
+            /* etc */
+        }
+
+        /* @page { size: 75mm 100mm} */ /* output size */
+        /* body.receipt .sheet {font-family: 'Courier New', Courier, monospace} sheet size */
+        /* @media print { body.receipt { width: 58mm } } */
     </style>
 </head>
 <body class="recipt">
