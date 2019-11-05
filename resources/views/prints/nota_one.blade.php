@@ -115,6 +115,7 @@
 <script>
     $( document ).ready(function() {
         window.print();
+        window.onafterprint = window.close();
     });
 </script>
 </body>
