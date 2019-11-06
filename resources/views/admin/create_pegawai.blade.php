@@ -12,7 +12,48 @@
                         <div class="col-lg-8 col-lg-offset-2">
                             <form action="" method="post">
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nama Pegawai</label>
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nomor Pegawai</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="emp_number" name="emp_number" placeholder="ex : 038">
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nama Pegawau</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="emp_name" name="emp_name" placeholder="Nama Lengkap Gelar">
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">NIK</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="emp_nik" name="emp_nik" placeholder="Username">
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Jenis Kelamin</label>
+                                        <div class="col-lg-8">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="emp_sex" id="emp_sex" value="L"> Laki-laki
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="emp_sex" id="emp_sex" value="P"> Perempuan
+                                            </label>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Alamat</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nomor Kontak</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Agama</label>
                                         <div class="col-lg-8">
                                             <select id="nama_pegawai" name="nama_pegawai" class="form-control">
                                                 <option selected>-- Pilih Pegawai --</option>
@@ -22,36 +63,9 @@
                                         </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-lg-4 col-form-label">Username</label>
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Tanggal Masuk</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-                                        </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-lg-4 col-form-label">Email</label>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="email@example.com">
-                                        </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputPassword" class="col-lg-4 col-form-label">Password</label>
-                                        <div class="col-lg-8">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                                        </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputPassword" class="col-lg-4 col-form-label">Ulangi Password</label>
-                                        <div class="col-lg-8">
-                                            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Password">
-                                        </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-lg-4 col-form-label">User Role</label>
-                                        <div class="col-lg-8">
-                                            <select id="nama_pegawai" name="role" class="form-control">
-                                                <option selected>-- Pilih Role --</option>
-                                                <option>...</option>
-                                            </select>
+                                            <input type="date" class="form-control" id="username" name="username" placeholder="Username">
                                         </div>
                                 </div>
                                 <div class="form-group row">
