@@ -15,11 +15,13 @@ class LoginController extends Controller
     public function authLogin(Request $request) {
         // dd($request->all());
         if(Auth::attempt($request->only('email', 'password'))) {
-            if(auth()->user()->user_role == 'admin' || auth()->user()->user_role == 'manajemen') {
-                
-                return redirect('/dashboard');
+            if(auth()->user()->user_role == 'admin') {
+                return redirect('/admin');
+            }
+            elseif(auth()->user()->user_role == 'manajemen') {
 
-            } elseif(auth()->user()->user_role == 'gudang') {
+            }
+             elseif(auth()->user()->user_role == 'gudang') {
 
                 return redirect('/produksi');
 

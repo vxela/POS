@@ -20,8 +20,8 @@ Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/auth', 'LoginController@authLogin');
 Route::get('/logout', 'LoginController@logout');
 
-Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,gudang,kasir']], function () {
-    
+Route::group(['middleware' => ['auth','CheckUserRole:admin']], function () {
+    Route::resource('/admin', 'AdminController');
 });
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen']], function () {
