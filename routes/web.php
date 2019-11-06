@@ -21,13 +21,17 @@ Route::post('/auth', 'LoginController@authLogin');
 Route::get('/logout', 'LoginController@logout');
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin']], function () {
+
+    Route::resource('/admin/user', 'UserController');
+    Route::resource('/admin/pegawai', 'PegawaiController');
     Route::resource('/admin', 'AdminController');
+
 });
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen']], function () {
 
     Route::get('/dashboard', 'DashboardController@index');
-    
+
 });
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], function () {

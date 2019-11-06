@@ -1,5 +1,5 @@
 @extends('layouts._AdmTempelate')
 
 @section('content')
-<h1>this is dashboard Admin Dashboard</h1>    
+<h1>this is Pegawai</h1>    
 @endsection
