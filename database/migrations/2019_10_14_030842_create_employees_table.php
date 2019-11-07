@@ -15,14 +15,15 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('tbl_employees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('emp_code', 20);
+            $table->string('emp_code', 20)->unique();
             $table->string('emp_name', 50);
-            $table->string('emp_id_number', 16);
+            $table->string('emp_id_number', 16)->unique();
             $table->enum('emp_sex', ['L','P']);
             $table->text('emp_address');
             $table->string('emp_phone_number', 13);
             $table->string('emp_religion', 15);
             $table->date('emp_date_in');
+            $table->integer('account_status')->nullable()->default(0);
             $table->integer('user_id');
             $table->timestamps();
         });

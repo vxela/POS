@@ -15,6 +15,7 @@ class Tbl_employee extends Model
         'emp_phone_number', 
         'emp_religion', 
         'emp_date_in', 
+        'account_status',
         'user_id', 
         'created_at',
         'updated_at'

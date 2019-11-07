@@ -12,8 +12,31 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <h4>Panel Content</h4>
-                        <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+                        <h4>List Pegawai</h4>
+                        <table class="table table-hover">
+                            <thead>
+                                <th>#</th>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>No HP</th>
+                                <th>Tgl Masuk</th>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $n=1;
+                                @endphp
+                                @foreach ($data_emp as $emp)
+                                    <tr>
+                                        <td>{{$n++}}</td>
+                                        <td>{{$emp->emp_code}}</td>
+                                        <td>{{$emp->emp_name}}</td>
+                                        <td>{{$emp->emp_phone_number}}</td>
+                                        <td>{{$emp->emp_date_in}}</td>
+                                    </tr>
+
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
         </div>

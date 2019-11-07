@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Tbl_employee as Employee;
+use Session;
 
 class PegawaiController extends Controller
 {
@@ -14,7 +15,8 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        return view('admin.index_pegawai');
+        $emp = Employee::all();
+        return view('admin.index_pegawai', ['data_emp' => $emp]);
     }
 
     /**
@@ -44,10 +46,20 @@ class PegawaiController extends Controller
         'emp_phone_number' => $request->emp_contact,
         'emp_religion' => $request->emp_agama,
         'emp_date_in' => $request->emp_date_in,
-        'user_id' => auth()->user()->id,
+        'user_id' => auth()->user()->id
         );
         // dd($request->all());
         $data = Employee::create($data);
+
+        if($data->exists) {
+            Session::flash('status', 'success');
+            Session::flash('msg', 'Data '.$data->emp_name.' Berhasil di simpan!');
+        } else {
+            Session::flash('status', 'error');
+            Session::flash('msg', 'Tambah Pegawai Gagal!!');
+        }
+
+        return redirect()->route('pegawai.index');
     }
 
     /**

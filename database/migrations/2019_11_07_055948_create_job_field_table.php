@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobPositionsTable extends Migration
+class CreateJobFieldTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateJobPositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_job_positions', function (Blueprint $table) {
+        Schema::create('tbl_job_fields', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('position_name', 50);
+            $table->string('job_cd')->unique();
+            $table->string('division_name');
+            $table->string('position');
+            $table->text('reponsibility');
             $table->integer('user_id');
             $table->timestamps();
         });
@@ -28,6 +31,6 @@ class CreateJobPositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_job_positions');
+        Schema::dropIfExists('tbl_job_fields');
     }
 }

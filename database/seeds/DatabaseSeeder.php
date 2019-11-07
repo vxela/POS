@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ProduksiTableSeeder::class,
             PenjualanTableSeeder::class,
             CustomerTableSeeder::class,
-            ShipmentToolTableSeeder::class
+            ShipmentToolTableSeeder::class,
+            JobFieldSeeder::class
         ]);
     }
 }
