@@ -16,6 +16,7 @@ class PegawaiController extends Controller
     public function index()
     {
         $emp = Employee::all();
+        $job_field = \App\Models\Tbl_job_field::all();
         return view('admin.index_pegawai', ['data_emp' => $emp]);
     }
 
@@ -26,7 +27,8 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('admin.create_pegawai');
+        $job_field = \App\Models\Tbl_job_field::all();
+        return view('admin.create_pegawai', ['data_jobf' => $job_field]);
     }
 
     /**
