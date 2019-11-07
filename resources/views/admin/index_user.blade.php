@@ -12,8 +12,33 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <h4>Panel Content</h4>
-                        <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+                        <h4>List User</h4>
+                        <table class="table table-hover">
+                            <thead>
+                                <th>#</th>
+                                <th>Role</th>
+                                <th>Divisi</th>
+                                <th>Username</th>
+                                <th>Input by</th>
+                                <th>Status</th>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $n=1;
+                                @endphp
+                                @foreach ($data_user as $user)
+                                    <tr>
+                                        <td>{{$n++}}</td>
+                                        <td>{{$user->user_role}}</td>
+                                        <td>{{$user->getPegawai()->getJob()->division_name}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->user_id}}</td>
+                                        <td>{{$user->user_status}}</td>
+                                    </tr>
+
+                                @endforeach
+                            </tbody>
+                        </table>                        
                     </div>
                 </div>
         </div>

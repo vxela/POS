@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'user_role'
+        'emp_id', 'name', 'email', 'password', 'user_role'
     ];
 
     /**
@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getPegawai() {
+        return \App\Models\Tbl_employee::find($this->emp_id);
+    }
 }

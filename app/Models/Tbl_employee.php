@@ -20,4 +20,8 @@ class Tbl_employee extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function getJob() {
+        return Tbl_job_field::find($this->account_status);
+    }
 }

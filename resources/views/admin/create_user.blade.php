@@ -16,6 +16,9 @@
                                         <div class="col-lg-8">
                                             <select id="nama_pegawai" name="nama_pegawai" class="form-control">
                                                 <option selected>-- Pilih Pegawai --</option>
+                                                @foreach ($data_emp as $emp)
+                                                    <option value="{{$emp->id}}">{{$emp->emp_name}}</option>
+                                                @endforeach
                                                 <option>...</option>
                                             </select>
                                             <input type="hidden" class="form-control" id="id_pegawai" name="id_pegawai" value="">

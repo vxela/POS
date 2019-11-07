@@ -13,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.index_user');
+        $user = \App\User::all();
+        return view('admin.index_user', ['data_user' => $user]);
     }
 
     /**
@@ -23,7 +24,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.create_user');
+        $emp = \App\Models\Tbl_employee::all();
+        return view('admin.create_user', ['data_emp' => $emp]);
     }
 
     /**

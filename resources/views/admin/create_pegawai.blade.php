@@ -75,10 +75,10 @@
                                 <div class="form-group row">
                                         <label for="staticEmail" class="col-lg-4 col-form-label">Division<small class="text-red">*</small></label>
                                             <div class="col-lg-8">
-                                                <select id="emp_agama" name="emp_agama" class="form-control">
+                                                <select id="emp_job_field" name="emp_job_field" class="form-control">
                                                     <option value="">-- Pilih Divisi dan Posisi --</option>
                                                     @foreach ($data_jobf as $jobf)
-                                                        <option value="{{$jobf->job_cd}}">{{$jobf->division_name.' - '.$jobf->position}}</option>   
+                                                        <option value="{{$jobf->id}}">{{$jobf->division_name.' - '.$jobf->position}}</option>   
                                                     @endforeach
                                                 </select>
                                             </div>

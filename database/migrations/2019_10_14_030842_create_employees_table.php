@@ -23,6 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->string('emp_phone_number', 13);
             $table->string('emp_religion', 15);
             $table->date('emp_date_in');
+            $table->enum('emp_status', ['aktif', 'cuti', 'nonaktif', 'keluar'])->default('aktif');
             $table->integer('account_status')->nullable()->default(0);
             $table->integer('user_id');
             $table->timestamps();
