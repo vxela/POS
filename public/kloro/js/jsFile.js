@@ -14,6 +14,7 @@ $(document).ready( function () {
         }
     }
     $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
         language: 'id',
         endDate: '+0d',
         autoclose: true

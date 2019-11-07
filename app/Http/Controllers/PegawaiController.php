@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Tbl_employee as Employee;
 
 class PegawaiController extends Controller
 {
@@ -34,7 +35,19 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = array(
+        'emp_code' => $request->emp_number,
+        'emp_name' => $request->emp_name,
+        'emp_id_number' => $request->emp_nik,
+        'emp_sex' => $request->emp_sex,
+        'emp_address' => $request->emp_address,
+        'emp_phone_number' => $request->emp_contact,
+        'emp_religion' => $request->emp_agama,
+        'emp_date_in' => $request->emp_date_in,
+        'user_id' => auth()->user()->id,
+        );
+        // dd($request->all());
+        $data = Employee::create($data);
     }
 
     /**

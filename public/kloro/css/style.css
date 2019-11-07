@@ -84,3 +84,7 @@ td.disabled.day {
     color: crimson !important; 
     cursor: not-allowed;
 }
+
+.text-red {
+    color: red;
+}
