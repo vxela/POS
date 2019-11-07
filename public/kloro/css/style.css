@@ -78,3 +78,9 @@
     margin-bottom: 0px;
     font-weight:bold
 }
+
+td.disabled.day {
+    background: 0 0;
+    color: crimson !important; 
+    cursor: not-allowed;
+}

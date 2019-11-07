@@ -10,30 +10,31 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <form action="" method="post">
+                            <form action="{{route('pegawai.store')}}" method="post">
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nomor Pegawai</label>
+                                    <label for="" class="col-lg-4 col-form-label">Nomor Pegawai</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="emp_number" name="emp_number" placeholder="ex : 038">
+                                            @csrf
+                                            <input type="text" class="form-control" id="emp_number" name="emp_number" placeholder="ex : 038" required>
                                         </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nama Pegawau</label>
+                                    <label for="staticEmail" class="col-lg-4 col-form-label">Nama Pegawai</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="emp_name" name="emp_name" placeholder="Nama Lengkap Gelar">
+                                            <input type="text" class="form-control" id="emp_name" name="emp_name" placeholder="Nama Lengkap Gelar" required>
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">NIK</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="emp_nik" name="emp_nik" placeholder="Username">
+                                            <input type="number" class="form-control" id="emp_nik" name="emp_nik" placeholder="Nomor KTP" required>
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Jenis Kelamin</label>
                                         <div class="col-lg-8">
                                             <label class="radio-inline">
-                                                <input type="radio" name="emp_sex" id="emp_sex" value="L"> Laki-laki
+                                                <input type="radio" name="emp_sex" id="emp_sex" value="L" checked> Laki-laki
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="emp_sex" id="emp_sex" value="P"> Perempuan
@@ -43,29 +44,33 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Alamat</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                            <textarea class="form-control" rows="2" id="emp_address" name="emp_address" style="resize: vertical; max-height: 100px" placeholder="Alamat"></textarea>
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Nomor Kontak</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                            <input type="text" class="form-control" id="emp_contact" name="emp_contact" placeholder="No HP">
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Agama</label>
                                         <div class="col-lg-8">
-                                            <select id="nama_pegawai" name="nama_pegawai" class="form-control">
-                                                <option selected>-- Pilih Pegawai --</option>
-                                                <option>...</option>
+                                            <select id="emp_agama" name="emp_agama" class="form-control">
+                                                <option selected>-- Pilih Agama --</option>
+                                                <option value="Islam">Islam</option>
+                                                <option value="Kristen">Kristen</option>
+                                                <option value="Katolik">Katolik</option>
+                                                <option value="Hindu">Hindu</option>
+                                                <option value="Budha">Budha</option>
+                                                <option value="Konghuchu">Konghuchu</option>
                                             </select>
-                                            <input type="hidden" class="form-control" id="id_pegawai" name="id_pegawai" value="">
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Tanggal Masuk</label>
                                         <div class="col-lg-8">
-                                            <input type="date" class="form-control" id="username" name="username" placeholder="Username">
+                                            <input type="text" class="form-control datepicker" id="emp_date_in" name="emp_date_in" placeholder="Username">
                                         </div>
                                 </div>
                                 <div class="form-group row">

@@ -10,10 +10,9 @@
 	<link rel="stylesheet" href="{{asset('kloro/vendor/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/vendor/font-awesome/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/vendor/linearicons/style.css')}}">
-	<link rel="stylesheet" href="{{asset('kloro/vendor/chartist/css/chartist-custom.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/datatable/datatables.min.css')}}">
-	<link rel="stylesheet" href="{{asset('croper/cropper.css')}}">
+	<link rel="stylesheet" href="{{asset('datepicker/bootstrap-datepicker3.min.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('kloro/css/main.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -107,13 +106,10 @@
 	<script src="{{asset('kloro/vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('kloro/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('kloro/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-	<script src="{{asset('kloro/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
-	<script src="{{asset('kloro/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('kloro/scripts/klorofil-common.js')}}"></script>
 	<script src="{{asset('kloro/datatable/datatables.min.js')}}"></script>
 	<script src="{{asset('kloro/js/jsFile.js')}}"></script>
-	<script src="{{asset('croper/jquery-cropper.js')}}"></script>
-	<script src="{{asset('croper/jquery-cropper.js')}}"></script>
+	<script src="{{asset('datepicker/bootstrap-datepicker.min.js')}}"></script>
 	<script type="application/javascript">
 	
 	</script>
