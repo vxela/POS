@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
+use \App\User as User;
+
 
 class UserController extends Controller
 {
@@ -36,7 +39,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $data_user = array(
+            'emp_id'    => $request->id_pegawai,
+            'name'  => $request->username,
+            'email' => $request->email,
+            'password'  => $request->password,
+            'user_role' => $request->role,
+            'user_id'   => auth()->user()->id,
+            'user_status'   => 'aktif'
+        );
+
+        $user = User::create($data_user);
+
+        if($user->exists) {
+            Session::flash('status', 'success');
+            Session::flash('msg', 'Data '.$user->name.' Berhasil di simpan!');
+        } else {
+            Session::flash('status', 'error');
+            Session::flash('msg', 'Tambah Pegawai Gagal!!');
+        }
+
+        return back();
+
     }
 
     /**

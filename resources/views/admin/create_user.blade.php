@@ -10,18 +10,17 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <form action="" method="post">
+                            <form action="{{route('user.store')}}" method="post">
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Nama Pegawai</label>
                                         <div class="col-lg-8">
-                                            <select id="nama_pegawai" name="nama_pegawai" class="form-control">
+                                            <select id="id_pegawai" name="id_pegawai" class="form-control">
                                                 <option selected>-- Pilih Pegawai --</option>
                                                 @foreach ($data_emp as $emp)
                                                     <option value="{{$emp->id}}">{{$emp->emp_name}}</option>
                                                 @endforeach
-                                                <option>...</option>
                                             </select>
-                                            <input type="hidden" class="form-control" id="id_pegawai" name="id_pegawai" value="">
+                                            @csrf
                                         </div>
                                 </div>
                                 <div class="form-group row">
@@ -51,9 +50,13 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">User Role</label>
                                         <div class="col-lg-8">
-                                            <select id="nama_pegawai" name="role" class="form-control">
+                                            <select id="role" name="role" class="form-control">
                                                 <option selected>-- Pilih Role --</option>
-                                                <option>...</option>
+                                                <option value="admin">admin</option>
+                                                <option value="manajemen">manajemen</option>
+                                                <option value="kasir">marketing</option>
+                                                <option value="gudang">produksi</option>
+                                                <option value="kurir">pengiriman</option>
                                             </select>
                                         </div>
                                 </div>
