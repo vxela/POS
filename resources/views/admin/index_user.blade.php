@@ -32,7 +32,7 @@
                                         <td>{{$user->user_role}}</td>
                                         <td>{{$user->getPegawai()->getJob()->division_name}}</td>
                                         <td>{{$user->name}}</td>
-                                        <td>{{$user->user_id}}</td>
+                                        <td>{{$user->getUser()->name}}</td>
                                         <td>{{$user->user_status}}</td>
                                     </tr>
 

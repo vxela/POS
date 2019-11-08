@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="{{asset('kloro/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/datatable/datatables.min.css')}}">
 	<link rel="stylesheet" href="{{asset('kloro/css/jquery-confirm.min.css')}}">
+	<link rel="stylesheet" href="{{asset('datepicker/bootstrap-datepicker3.min.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('kloro/css/main.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -63,6 +64,7 @@
 						<li><a href="{{'/penjualan'}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="{{'/penjualan'}}" class=""><i class="lnr lnr-cart"></i> <span>Order List</span></a></li>
 						<li><a href="{{'/penjualan/create'}}" class=""><i class="lnr lnr-cart"></i> <span>Tambah Order</span></a></li>
+						<li><a href="{{route('kirim.index')}}" class=""><i class="lnr lnr-cart"></i> <span>Pengiriman</span></a></li>
 						<li>
 							<a href="#subDataJual" data-toggle="collapse" class="collapsed"><i class="lnr lnr-chart-bars"></i> <span>Laporan Penjualan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDataJual" class="collapse ">
@@ -112,8 +114,8 @@
 	<script src="{{asset('kloro/scripts/klorofil-common.js')}}"></script>
 	<script src="{{asset('kloro/datatable/datatables.min.js')}}"></script>
 	<script src="{{asset('kloro/js/jsFile.js')}}"></script>
-	<script src="{{asset('croper/jquery-cropper.js')}}"></script>
 	<script src="{{asset('kloro/js/jquery-confirm.min.js')}}"></script>
+	<script src="{{asset('datepicker/bootstrap-datepicker.min.js')}}"></script>
 </body>
 
 </html>

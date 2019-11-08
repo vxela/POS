@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Session;
-use \App\User as User;
 
-
-class UserController extends Controller
+class PengirimanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = \App\User::all();
-        return view('admin.index_user', ['data_user' => $user]);
+        $data_order = \App\Models\Tbl_faktur::all();
+        
+        return view('penjualan.setup_kirim');
+
     }
 
     /**
@@ -27,8 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $emp = \App\Models\Tbl_employee::all();
-        return view('admin.create_user', ['data_emp' => $emp]);
+        //
     }
 
     /**
@@ -39,29 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $data_user = array(
-            'emp_id'    => $request->id_pegawai,
-            'name'  => $request->username,
-            'email' => $request->email,
-            'password'  => bcrypt($request->password),
-            'user_role' => $request->role,
-            'user_id'   => auth()->user()->id,
-            'user_status'   => 'aktif'
-        );
-
-        $user = User::create($data_user);
-
-        if($user->exists) {
-            Session::flash('status', 'success');
-            Session::flash('msg', 'Data '.$user->name.' Berhasil di simpan!');
-        } else {
-            Session::flash('status', 'error');
-            Session::flash('msg', 'Tambah Pegawai Gagal!!');
-        }
-
-        return back();
-
+        //
     }
 
     /**

@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function getPegawai() {
         return \App\Models\Tbl_employee::find($this->emp_id);
     }
+
+    public function getUser() {
+        return \App\User::find($this->user_id)->first();
+    }
 }

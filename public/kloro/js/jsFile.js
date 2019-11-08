@@ -114,8 +114,6 @@ $(document).ready( function () {
 
     $('#s_customer').keyup(function(){
         var dataIn = $(this).val();
-        // $('#cutomerlist').fadeIn();
-        // $('#cutomerlist').html('<ul class="dropdown-menu" style="display:block; position:absolute"><li>'+dataIn+'</li>'+'<li>'+dataIn+'</li>'+'<li>'+dataIn+'</li>'+'<li>'+dataIn+'</li></ul>');
         if(dataIn != '') {
             $('#s_customer').removeClass('ferror');
             var _token = $('input[name="_token"]').val();
