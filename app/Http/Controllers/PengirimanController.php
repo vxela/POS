@@ -15,7 +15,7 @@ class PengirimanController extends Controller
     {
         $data_order = \App\Models\Tbl_faktur::all();
         
-        return view('penjualan.setup_kirim');
+        return view('pengiriman.setup_kirim');
 
     }
 
