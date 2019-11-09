@@ -21,21 +21,36 @@
                             </div>
                         @endif
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div>
-                                data order
-                            </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4" style="min-height: 200px;">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Data Order</h3>
                         </div>
-                        <div class="col-lg-4">
-                            <div>
-                                left
-                            </div>
+                        <div class="panel-body">
+                            <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
                         </div>
-                        <div class="col-lg-4">
-                            <div>
-                                roght
-                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="min-height: 200px;">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Left</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="min-height: 200px;">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Right</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
                         </div>
                     </div>
                 </div>
