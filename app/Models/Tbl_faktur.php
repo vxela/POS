@@ -26,4 +26,8 @@ class Tbl_faktur extends Model
         return \App\User::where('id', $this->user_id)->first();
     }
 
+    public function getPo() {
+        return \App\Models\Tbl_po::where('nota_number', $this->nota_number)->get();
+    }
+
 }

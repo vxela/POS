@@ -21,6 +21,49 @@
                             </div>
                         @endif
                     </div>
+                    <table class="table">
+                        <thead>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Nama
+                            </th>
+                            <th>
+                                Alamat
+                            </th>
+                            <th>
+                                Pick Up
+                            </th>
+                            <th>
+                                -
+                            </th>
+                        </thead>
+                        <tbody>
+                            @php
+                               $n =1; 
+                            @endphp
+                            @foreach ($data_order as $order)
+                                <tr>
+                                    <td>
+                                        {{$n++}}
+                                    </td>
+                                    <td>
+                                        {{$order->getCustomer()->ctm_name}}
+                                    </td>
+                                    <td>
+                                        {{$order->getCustomer()->ctm_org_address}}
+                                    </td>
+                                    <td>
+                                        {{$order->id_pengiriman}}
+                                    </td>
+                                    <td>
+                                            {{$order->id}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="row">
