@@ -24,6 +24,9 @@
                     <table class="table">
                         <thead>
                             <th>
+                                <input type="checkbox" id="checkall">
+                            </th>
+                            <th>
                                 #
                             </th>
                             <th>
@@ -44,7 +47,10 @@
                                $n =1; 
                             @endphp
                             @foreach ($data_order as $order)
-                                <tr>
+                                <tr class="dragable">
+                                    <td>
+                                        <input type="checkbox" name="id_faktur" value="">
+                                    </td>
                                     <td>
                                         {{$n++}}
                                     </td>
@@ -55,7 +61,21 @@
                                         {{$order->getCustomer()->ctm_org_address}}
                                     </td>
                                     <td>
-                                        {{$order->id_pengiriman}}
+                                        <select name="carlist" form="carform">
+                                            <option value="volvo">Pilih</option>
+                                            @foreach ($data_tool as $tool)
+                                                <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
+                                            @endforeach
+                                        </select>
+                                        {{-- <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick Up
+                                            <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Carry</a></li>
+                                                <li><a href="#">Tata</a></li>
+                                            </ul>
+                                        </div> --}}
+                                        {{-- {{$order->id_pengiriman}} --}}
                                     </td>
                                     <td>
                                             {{$order->id}}
@@ -65,35 +85,122 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-lg-6">
+                                <select name="carlist" form="carform">
+                                    <option value="volvo">Pilih</option>
+                                    @foreach ($data_tool as $tool)
+                                        <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
+                                    @endforeach
+                                </select>
+                            <Button class="btn btn-primary">Simpan</Button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-lg-4" style="min-height: 200px;">
+                <div class="col-lg-6" style="min-height: 200px;">
                     <div class="panel">
                         <div class="panel-heading">
                             <h3 class="panel-title">Data Order</h3>
                         </div>
                         <div class="panel-body">
-                            <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+                            <table class="table">
+                                <thead>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Nama
+                                    </th>
+                                    <th>
+                                        Alamat
+                                    </th>
+                                    <th>
+                                        Pick Up
+                                    </th>
+                                    <th>
+                                        -
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $n =1; 
+                                    @endphp
+                                    @foreach ($data_order as $order)
+                                        <tr class="dragable">
+                                            <td>
+                                                {{$n++}}
+                                            </td>
+                                            <td>
+                                                {{$order->getCustomer()->ctm_name}}
+                                            </td>
+                                            <td>
+                                                {{$order->getCustomer()->ctm_org_address}}
+                                            </td>
+                                            <td>
+                                                {{$order->id_pengiriman}}
+                                            </td>
+                                            <td>
+                                                    {{$order->id}}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4" style="min-height: 200px;">
+                <div class="col-lg-6" style="min-height: 200px;">
                     <div class="panel">
                         <div class="panel-heading">
                             <h3 class="panel-title">Left</h3>
                         </div>
                         <div class="panel-body">
-                            <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4" style="min-height: 200px;">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Right</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+                            <table class="table">
+                                <thead>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Nama
+                                    </th>
+                                    <th>
+                                        Alamat
+                                    </th>
+                                    <th>
+                                        Pick Up
+                                    </th>
+                                    <th>
+                                        -
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $n =1; 
+                                    @endphp
+                                    @foreach ($data_order as $order)
+                                        <tr class="dragable">
+                                            <td>
+                                                {{$n++}}
+                                            </td>
+                                            <td>
+                                                {{$order->getCustomer()->ctm_name}}
+                                            </td>
+                                            <td>
+                                                {{$order->getCustomer()->ctm_org_address}}
+                                            </td>
+                                            <td>
+                                                {{$order->id_pengiriman}}
+                                            </td>
+                                            <td>
+                                                    {{$order->id}}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

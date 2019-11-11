@@ -156,4 +156,8 @@ $(document).ready( function () {
         }
         console.log($(this).closest('form').serialize());
     });
+
+    $('#checkall').click(function(){
+        $('input:checkbox').not(this).prop('checked', this.checked);
+    })
 });

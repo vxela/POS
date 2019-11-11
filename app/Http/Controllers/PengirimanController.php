@@ -14,8 +14,9 @@ class PengirimanController extends Controller
     public function index()
     {
         $order = \App\Models\Tbl_faktur::all();
+        $tool = \App\Models\Tbl_shipment_tool::all();
         
-        return view('pengiriman.setup_kirim', ['data_order' => $order]);
+        return view('pengiriman.setup_kirim', ['data_order' => $order, 'data_tool' => $tool]);
 
     }
 
