@@ -6,7 +6,8 @@
         <div class="col-md-12">
                 <!-- PANEL HEADLINE -->
             <div class="panel panel-headline">
-                <form action="#" method="post">
+                <form action="{{'/penjualan/kirim/order'}}" method="post">
+                    @csrf
                     <div class="panel-heading">
                         <h3 class="panel-title">Setup Pengiriman Data {{Carbon\Carbon::now()->formatLocalized('%A, %d %h %Y')}}</h3>
                         {{-- <div class="right">
@@ -25,7 +26,7 @@
                         <table class="table">
                             <thead>
                                 <th>
-                                    <input type="checkbox" id="checkall">
+                                    <input type="checkbox" name="checkall" id="checkall" value="check_all">
                                 </th>
                                 <th>
                                     #
@@ -50,7 +51,7 @@
                                 @foreach ($data_order as $order)
                                     <tr class="dragable">
                                         <td>
-                                            <input type="checkbox" name="id_faktur" value="">
+                                            <input type="checkbox" name="id_faktur[]" value="{{$order->id}}">
                                         </td>
                                         <td>
                                             {{$n++}}
@@ -62,8 +63,8 @@
                                             {{$order->getCustomer()->ctm_org_address}}
                                         </td>
                                         <td>
-                                            <select name="carlist" form="carform">
-                                                <option value="volvo">Pilih</option>
+                                            <select name="carlist" class="form-control">
+                                                <option value="">Pilih</option>
                                                 @foreach ($data_tool as $tool)
                                                     <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
                                                 @endforeach

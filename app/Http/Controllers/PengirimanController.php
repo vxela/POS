@@ -20,6 +20,11 @@ class PengirimanController extends Controller
 
     }
 
+    public function SendOrder(Request $request)
+    {
+        dd($request->all());
+    }
+
     /**
      * Show the form for creating a new resource.
      *
