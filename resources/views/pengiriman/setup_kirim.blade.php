@@ -92,7 +92,7 @@
                             <div class="col-lg-10">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <select name="carlist" class="form-control">
+                                        <select name="id_tool" class="form-control">
                                             <option value="volvo">Pilih Pick Up</option>
                                             @foreach ($data_tool as $tool)
                                                 <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
@@ -100,7 +100,7 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select name="carlist" class="form-control">
+                                        <select name="id_driver" class="form-control">
                                             <option value="volvo">Pilih Driver</option>
                                             @foreach ($data_tool as $tool)
                                                 <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
@@ -108,7 +108,7 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select name="carlist" class="form-control">
+                                        <select name="id_helper" class="form-control">
                                             <option value="volvo">Pilih Helper</option>
                                             @foreach ($data_tool as $tool)
                                                 <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
