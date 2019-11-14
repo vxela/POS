@@ -56,7 +56,7 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Agama <small class="text-red">*</small></label>
                                         <div class="col-lg-8">
-                                            <select id="emp_agama" name="emp_agama" class="form-control">
+                                            <select id="emp_agama" name="emp_agama" class="form-control" required>
                                                 <option value="Islam" selected>Islam</option>
                                                 <option value="Kristen">Kristen</option>
                                                 <option value="Katolik">Katolik</option>
@@ -69,13 +69,13 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-lg-4 col-form-label">Tanggal Masuk <small class="text-red">*</small></label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control datepicker" id="emp_date_in" name="emp_date_in" placeholder="Tanggal Masuk">
+                                            <input type="text" class="form-control datepicker" id="emp_date_in" name="emp_date_in" placeholder="Tanggal Masuk" required>
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                         <label for="staticEmail" class="col-lg-4 col-form-label">Division<small class="text-red">*</small></label>
                                             <div class="col-lg-8">
-                                                <select id="emp_job_field" name="emp_job_field" class="form-control">
+                                                <select id="emp_job_field" name="emp_job_field" class="form-control" required>
                                                     <option value="">-- Pilih Divisi dan Posisi --</option>
                                                     @foreach ($data_jobf as $jobf)
                                                         <option value="{{$jobf->id}}">{{$jobf->division_name.' - '.$jobf->position}}</option>   
