@@ -44,7 +44,7 @@
                                     -
                                 </th>
                             </thead>
-                            <tbody>
+                            <tbody class="dropzone"
                                 @php
                                 $n =1; 
                                 @endphp
@@ -69,15 +69,6 @@
                                                     <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
                                                 @endforeach
                                             </select>
-                                            {{-- <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick Up
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="#">Carry</a></li>
-                                                    <li><a href="#">Tata</a></li>
-                                                </ul>
-                                            </div> --}}
-                                            {{-- {{$order->id_pengiriman}} --}}
                                         </td>
                                         <td>
                                                 {{$order->id}}
@@ -149,7 +140,7 @@
                                         -
                                     </th>
                                 </thead>
-                                <tbody>
+                                <tbody class="dropzone">
                                     @php
                                         $n =1; 
                                     @endphp
@@ -201,28 +192,30 @@
                                         -
                                     </th>
                                 </thead>
-                                <tbody>
+                                <tbody class="dropzone">
                                     @php
                                         $n =1; 
                                     @endphp
                                     @foreach ($data_order as $order)
-                                        <tr class="dragable">
-                                            <td>
-                                                {{$n++}}
-                                            </td>
-                                            <td>
-                                                {{$order->getCustomer()->ctm_name}}
-                                            </td>
-                                            <td>
-                                                {{$order->getCustomer()->ctm_org_address}}
-                                            </td>
-                                            <td>
-                                                {{$order->id_pengiriman}}
-                                            </td>
-                                            <td>
-                                                    {{$order->id}}
-                                            </td>
-                                        </tr>
+                                        <div class="dragable" draggable="true">
+                                            <tr>
+                                                <td>
+                                                    {{$n++}}
+                                                </td>
+                                                <td>
+                                                    {{$order->getCustomer()->ctm_name}}
+                                                </td>
+                                                <td>
+                                                    {{$order->getCustomer()->ctm_org_address}}
+                                                </td>
+                                                <td>
+                                                    {{$order->id_pengiriman}}
+                                                </td>
+                                                <td>
+                                                        {{$order->id}}
+                                                </td>
+                                            </tr>                                            
+                                        </div>
                                     @endforeach
                                 </tbody>
                             </table>
