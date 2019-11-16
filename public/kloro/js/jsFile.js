@@ -167,14 +167,15 @@ $(document).ready( function () {
         var csrf_token = $("meta[name='csrf-token']").attr("content");
 
         $.ajax({
-            url : '',
-            type : '',
+            url : '/',
+            type : 'post',
             data : {
                 'id_order' : id_order,
                 'id_tool'  : id_tool,
                 '_token'   : csrf_token
             },
-            success : function() {
+            success : function(){
+
             }
         })
 

@@ -90,4 +90,8 @@ class PengirimanController extends Controller
     {
         //
     }
+
+    public function updateOne($id) {
+        $order = \App\Models\Tbl_faktur::find($id);
+    }
 }
