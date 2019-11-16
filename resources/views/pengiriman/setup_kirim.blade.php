@@ -63,7 +63,7 @@
                                         {{$order->getCustomer()->ctm_org_address}}
                                     </td>
                                     <td>
-                                        <select name="carlist" class="form-control">
+                                        <select name="carlist" id="carlist" data-id={{$order->id}} class="form-control carlist">
                                             <option value="">Pilih</option>
                                             @foreach ($data_tool as $tool)
                                                 <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
