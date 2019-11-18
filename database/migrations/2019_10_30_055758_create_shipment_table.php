@@ -17,11 +17,7 @@ class CreateShipmentTable extends Migration
             $table->bigIncrements('id');
             $table->integer('nota_id');
             $table->integer('customer_id');
-            $table->integer('shipment_status_id');
-            $table->integer('shipment_vhicle_id');
-            $table->integer('driver_id');
-            $table->integer('helper_id');
-            $table->string('date_shipment');
+            $table->integer('tools_id');
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -91,7 +91,31 @@ class PengirimanController extends Controller
         //
     }
 
-    public function updateOne($id) {
-        $order = \App\Models\Tbl_faktur::find($id);
+    public function AjaxUpdateOne(Request $request) {
+
+        $ndata = \App\Models\Tbl_shipments::where('nota_id', $request->id_order)->count();
+
+        // echo $ndata;
+        
+        $data_shipment = array(
+            'nota_id' => $request->id_order,
+            'customer_id' => $request->id_tool,
+            'user_id' => auth()->user()->id
+        );
+
+        if($ndata == 0) {
+            $shipment = \App\Models\Tbl_shipments::create($data_shipment);
+        } else {
+            $shipment = \App\Models\Tbl_shipments::where('nota_id', $request->id_order)
+                        ->update(['customer_id' => $request->id_tool]);
+        }
+
+        
+        if($shipment) {
+            echo "success";
+        } else {
+            echo "fail";
+        }
+        
     }
 }

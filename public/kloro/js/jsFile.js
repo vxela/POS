@@ -164,18 +164,19 @@ $(document).ready( function () {
     $('.carlist').on('change', function(){
         var id_order = $(this).data('id');
         var id_tool = $(this).val();
+        var url = $(this).data('route');
         var csrf_token = $("meta[name='csrf-token']").attr("content");
 
         $.ajax({
-            url : '/',
+            url : url,
             type : 'post',
             data : {
                 'id_order' : id_order,
                 'id_tool'  : id_tool,
                 '_token'   : csrf_token
             },
-            success : function(){
-
+            success : function(data){
+                console.log(data);
             }
         })
 

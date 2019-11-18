@@ -44,7 +44,7 @@
                                 -
                             </th>
                         </thead>
-                        <tbody class="dropzone"
+                        <tbody class="dropzone">
                             @php
                             $n =1; 
                             @endphp
@@ -63,7 +63,7 @@
                                         {{$order->getCustomer()->ctm_org_address}}
                                     </td>
                                     <td>
-                                        <select name="carlist" id="carlist" data-id={{$order->id}} class="form-control carlist">
+                                        <select name="carlist" id="carlist" data-id="{{$order->id}}" data-route="{{'/penjualan/kirim/order/ajaxUpdate/'.$order->id}}" class="form-control carlist">
                                             <option value="">Pilih</option>
                                             @foreach ($data_tool as $tool)
                                                 <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
