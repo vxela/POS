@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class PengirimanController extends Controller
 {
@@ -13,7 +14,7 @@ class PengirimanController extends Controller
      */
     public function index()
     {
-        $order = \App\Models\Tbl_faktur::all();
+        $order = \App\Models\Tbl_faktur::where('id_pengiriman', 0)->get();
         $tool = \App\Models\Tbl_shipment_tool::all();
         
         return view('pengiriman.setup_kirim', ['data_order' => $order, 'data_tool' => $tool]);
@@ -107,7 +108,18 @@ class PengirimanController extends Controller
         );
 
         if($ndata == 0) {
-            $shipment = \App\Models\Tbl_shipments::create($data_shipment);
+            DB::beginTransaction();
+            try {
+                $shipment = \App\Models\Tbl_shipments::create($data_shipment);
+                $nota = \App\Models\Tbl_faktur::find($shipment->nota_id);
+                    $nota->id_pengiriman = $shipment->id;
+                    $nota->save();
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollBack();
+                report($e);
+                return false;
+            }
         } else {
             $shipment = \App\Models\Tbl_shipments::where('nota_id', $request->id_order)
                         ->update(['tool_id' => $request->id_tool]);
