@@ -48,7 +48,7 @@
                             @php
                             $n =1; 
                             @endphp
-                            @foreach ($data_order as $order)
+                            @foreach ($data_shipment as $order)
                                 <tr class="dragable">
                                     <td>
                                         <input type="checkbox" name="id_faktur[]" value="{{$order->id}}">
@@ -66,7 +66,11 @@
                                         <select name="carlist" id="carlist" data-id="{{$order->id}}" data-route="{{'/penjualan/kirim/order/ajaxUpdate/'.$order->id}}" class="form-control carlist">
                                             <option value="">Pilih</option>
                                             @foreach ($data_tool as $tool)
-                                                <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
+                                                @if ($order->tool_id == $tool->id)
+                                                    <option value="{{$tool->id}}" selected>{{$tool->tool_name}}</option>
+                                                @else
+                                                    <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </td>
@@ -78,43 +82,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-lg-10">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <select name="id_tool" class="form-control" required>
-                                        <option value="">Pilih Pick Up</option>
-                                        @foreach ($data_tool as $tool)
-                                            <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-lg-4">
-                                    <select name="id_driver" class="form-control" required>
-                                        <option value="">Pilih Driver</option>
-                                        @foreach ($data_tool as $tool)
-                                            <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-lg-4">
-                                    <select name="id_helper" class="form-control" required>
-                                        <option value="volvo">Pilih Helper</option>
-                                        @foreach ($data_tool as $tool)
-                                            <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 text-right">
-                            <Button class="btn btn-primary" type="submit">Simpan</Button>
-                        </div>
-                    </div>
-                </div>
             </form>
         </div>
+        <!-- END PANEL HEADLINE -->
     </div> 
 </div>  
 @endsection

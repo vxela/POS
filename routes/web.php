@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], f
 
     Route::post('/penjualan/kirim/order/ajaxUpdate/{id}', 'PengirimanController@AjaxUpdateOne')
                 ->name('kirim.ajaxUpdate');
+    Route::get('/penjualan/kirim/order/ajaxGetLeft', 'PengirimanController@AjaxGetLeft')
+                ->name('kirim.ajaxGetLeft');
     Route::post('/penjualan/kirim/order', 'PengirimanController@SendOrder');
     Route::resource('/penjualan/kirim', 'PengirimanController');
     Route::get('/penjualan/flushss', 'PenjualanController@flushSs');

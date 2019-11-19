@@ -30,4 +30,8 @@ class Tbl_faktur extends Model
         return \App\Models\Tbl_po::where('nota_number', $this->nota_number)->get();
     }
 
+    public function getKirim() {
+        return \App\Models\Tbl_shipments::find('nota_id', $this->id);
+    }
+
 }

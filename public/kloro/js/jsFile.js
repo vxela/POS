@@ -176,10 +176,10 @@ $(document).ready( function () {
                 '_token'   : csrf_token
             },
             success : function(data){
-                console.log(data);
+                location.reload();
             }
         })
 
-    })
+    });
 
 });

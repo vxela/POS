@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 use DB;
 
 class PengirimanController extends Controller
@@ -14,7 +15,7 @@ class PengirimanController extends Controller
      */
     public function index()
     {
-        $order = \App\Models\Tbl_faktur::where('id_pengiriman', 0)->get();
+        $order = \App\Models\Tbl_faktur::where('id_pengiriman', '=', '0')->get();
         $tool = \App\Models\Tbl_shipment_tool::all();
         
         return view('pengiriman.setup_kirim', ['data_order' => $order, 'data_tool' => $tool]);
@@ -55,7 +56,11 @@ class PengirimanController extends Controller
      */
     public function show($id)
     {
-        //
+        $shipment = \App\Models\Tbl_shipments::where('tool_id', $id)->get();
+        $tool = \App\Models\Tbl_shipment_tool::all();
+
+        // dd($shipment);
+        return view('pengiriman.show_kirim', ['data_shipment' => $shipment, 'data_tool' => $tool]);
     }
 
     /**
@@ -132,5 +137,39 @@ class PengirimanController extends Controller
             echo "fail";
         }
         
+    }
+
+    public function AjaxGetLeft() {
+        // return Response::json(\App\Models\Tbl_shipments::where('tool_id', 1)->get());
+        $data_ship = \App\Models\Tbl_shipments::where('tool_id', 1)->get();
+        $n=1;
+        $str = "";
+        foreach($data_ship as $ship) {
+        $str .=  
+            "<tr>
+                <td>
+                    ".
+                    $n++
+                    ."    
+                </td>
+                <td>
+                    ".
+                    $ship->getCustomer()->ctm_name
+                    ."
+                </td>
+                <td>
+                    ".
+                    $ship->getCustomer()->ctm_org_address
+                    ."
+                </td>
+                <td>
+                    ".
+                    $ship->getTool()->tool_name
+                    ."
+                </td>
+            </tr>";
+        }
+
+        return $str;
     }
 }
