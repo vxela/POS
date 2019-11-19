@@ -95,11 +95,14 @@ class PengirimanController extends Controller
 
         $ndata = \App\Models\Tbl_shipments::where('nota_id', $request->id_order)->count();
 
+        $d_faktur = \App\Models\Tbl_faktur::find($request->id_order);
+
         // echo $ndata;
         
         $data_shipment = array(
             'nota_id' => $request->id_order,
-            'customer_id' => $request->id_tool,
+            'customer_id' => $d_faktur->getCustomer()->id,
+            'tool_id'=> $request->id_tool,
             'user_id' => auth()->user()->id
         );
 
@@ -107,7 +110,7 @@ class PengirimanController extends Controller
             $shipment = \App\Models\Tbl_shipments::create($data_shipment);
         } else {
             $shipment = \App\Models\Tbl_shipments::where('nota_id', $request->id_order)
-                        ->update(['customer_id' => $request->id_tool]);
+                        ->update(['tool_id' => $request->id_tool]);
         }
 
         
