@@ -17,6 +17,7 @@ class CreateShipmentTable extends Migration
             $table->bigIncrements('id');
             $table->integer('nota_id');
             $table->integer('customer_id');
+            $table->enum('status', ['ordered', 'shipied', 'arrived'])->default('ordered');
             $table->integer('tool_id');
             $table->integer('user_id');
             $table->timestamps();

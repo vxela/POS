@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon as Carbon;
 use Response;
 use DB;
 
@@ -56,7 +57,9 @@ class PengirimanController extends Controller
      */
     public function show($id)
     {
-        $shipment = \App\Models\Tbl_shipments::where('tool_id', $id)->get();
+        $shipment = \App\Models\Tbl_shipments::where('tool_id', $id)
+                                                ->whereDate('created_at', Carbon::today())
+                                                ->get();
         $tool = \App\Models\Tbl_shipment_tool::all();
 
         // dd($shipment);
