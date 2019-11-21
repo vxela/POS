@@ -87,14 +87,14 @@ class CustomerController extends Controller
 
         if($request->get('query')) {
             $str = $request->get('query');
-            $data = Customer::where('ctm_name', 'like', '%'.$str.'%')
-                                ->orWhere('ctm_name', 'like', '%'.$str.'%')
+            $data = Customer::where('name', 'like', '%'.$str.'%')
+                                ->orWhere('address', 'like', '%'.$str.'%')
                                 ->get();
 
             $outPut = '<ul class="dropdown-menu" style=" width:100%; display:block; position:absolute; max-height:300px; overflow:auto;">';
 
             foreach ($data as $row) {
-                $outPut .= '<li><a href="#" id="list_cust" data-id_cust="'.$row->id.'" data-name_cust="'.$row->ctm_name.'" data-address_cust="'.$row->ctm_org_address.'" class="notification-item list_cust"><div>'.$row->ctm_name.'</div><div><small>'.$row->ctm_org_address.'</small></div></a></li>';
+                $outPut .= '<li><a href="#" id="list_cust" data-id_cust="'.$row->id.'" data-name_cust="'.$row->name.'" data-address_cust="'.$row->address.'" class="notification-item list_cust"><div>'.$row->name.'</div><div><small>'.$row->address.'</small></div></a></li>';
             }
 
             $outPut .= '</ul>';

@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$faktur->nota_number}}</td>
-                                            <td>{{$faktur->getCustomer()->ctm_name}}</td>
+                                            <td>{{$faktur->getCustomer()->name}}</td>
                                             <td>{{"Rp. ".number_format($faktur->order_price).",00"}}</td>
                                             <td>{{$faktur->status_pembayaran}}</td>
                                             <td>

@@ -25,13 +25,13 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="row">
-                                        <h5 class="po-head">{{$data_faktur->getCustomer()->ctm_name}}</h5>
+                                        <h5 class="po-head">{{$data_faktur->getCustomer()->name}}</h5>
                                     </div>
                                     <div class="row">
-                                        <h5 class="po-head">{{$data_faktur->getCustomer()->ctm_org_address}}</h5>
+                                        <h5 class="po-head">{{$data_faktur->getCustomer()->address}}</h5>
                                     </div>
                                     <div class="row">
-                                        <h5 class="po-head">{{$data_faktur->getCustomer()->ctm_contact}}</h5>
+                                        <h5 class="po-head">{{$data_faktur->getCustomer()->contact}}</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 text-right">

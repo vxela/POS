@@ -15,11 +15,12 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('tbl_customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ctm_name');
-            $table->string('ctm_org_name');
-            $table->text('ctm_org_address');
-            $table->string('ctm_contact', 13);
-            $table->string('ctm_private_contact', 13);
+            $table->string('name');
+            $table->text('address');
+            $table->string('contact', 13);
+            $table->string('contact1', 13);
+            $table->integer('galon_price');
+            $table->date('date_join');
             $table->integer('user_id');
             $table->timestamps();
         });
