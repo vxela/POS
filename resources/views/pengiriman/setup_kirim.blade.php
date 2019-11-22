@@ -57,10 +57,10 @@
                                         {{$n++}}
                                     </td>
                                     <td>
-                                        {{$order->getCustomer()->ctm_name}}
+                                        {{$order->getCustomer()->name}}
                                     </td>
                                     <td>
-                                        {{$order->getCustomer()->ctm_org_address}}
+                                        {{$order->getCustomer()->address}}
                                     </td>
                                     <td>
                                         <select name="carlist" id="carlist" data-id="{{$order->id}}" data-route="{{'/penjualan/kirim/order/ajaxUpdate/'.$order->id}}" class="form-control carlist">
