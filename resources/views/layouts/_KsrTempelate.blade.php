@@ -66,7 +66,7 @@
 						<li><a href="{{'/penjualan/create'}}" class=""><i class="lnr lnr-cart"></i> <span>Tambah Order</span></a></li>
 						{{-- <li><a href="{{route('kirim.index')}}" class=""><i class="lnr lnr-cart"></i> <span>Pengiriman</span></a></li> --}}
 						<li>
-							<a href="#subDataJual" data-toggle="collapse" class="active" aria-expanded="true"><i class="lnr lnr-chart-bars"></i> <span>Pengiriman</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subDataJual" data-toggle="collapse" class="collapsed" aria-expanded="false"><i class="lnr lnr-chart-bars"></i> <span>Pengiriman</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDataJual" class="collapse ">
 								<ul class="nav">
 									<li><a href="{{route('kirim.index')}}" class="">Setup Pengiriman</a></li>
