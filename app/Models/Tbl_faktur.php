@@ -27,7 +27,7 @@ class Tbl_faktur extends Model
     }
 
     public function getPo() {
-        return \App\Models\Tbl_po::where('nota_number', $this->nota_number)->get();
+        return \App\Models\Tbl_po::where('nota_number', $this->nota_number)->first();
     }
 
     public function getKirim() {

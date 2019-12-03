@@ -26,36 +26,24 @@
                     <table class="table">
                         <thead>
                             <th>
-                                <input type="checkbox" name="checkall" id="checkall" value="check_all">
-                            </th>
-                            <th>
-                                #
-                            </th>
-                            <th>
                                 Nama
                             </th>
                             <th>
                                 Alamat
                             </th>
                             <th>
-                                Pick Up
+                                Jml Galon
                             </th>
                             <th>
-                                -
+                                Keterangan
                             </th>
                         </thead>
                         <tbody class="dropzone">
                             @php
                             $n =1; 
                             @endphp
-                            @foreach ($data_shipment as $order)
+                            @foreach ($data_pengiriman as $order)
                                 <tr class="dragable">
-                                    <td>
-                                        <input type="checkbox" name="id_faktur[]" value="{{$order->id}}">
-                                    </td>
-                                    <td>
-                                        {{$n++}}
-                                    </td>
                                     <td>
                                         {{$order->getCustomer()->name}}
                                     </td>
@@ -63,31 +51,18 @@
                                         {{$order->getCustomer()->address}}
                                     </td>
                                     <td>
-                                        <select name="carlist" id="carlist" data-id="{{$order->id}}" data-route="{{'/penjualan/kirim/order/ajaxUpdate/'.$order->id}}" class="form-control carlist">
-                                            <option value="">Pilih</option>
-                                            @foreach ($data_tool as $tool)
-                                                @if ($order->tool_id == $tool->id)
-                                                    <option value="{{$tool->id}}" selected>{{$tool->tool_name}}</option>
-                                                @else
-                                                    <option value="{{$tool->id}}">{{$tool->tool_name}}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
+                                        {{$order->getPo()->jml_barang}}
                                     </td>
                                     <td>
-                                            {{$order->id}}
+
                                     </td>
                                 </tr>
-                                @php
-                                    $tool_id = $order->tool_id;
-                                @endphp
                             @endforeach
                         </tbody>
                     </table>
                     <div class="row">
                         <div class="col-lg-6"></div>
                         <div class="col-lg-6 text-right">
-                            <a href="{{'/penjualan/kirim/print/'. $tool_id}}" class="btn btn-info">print</a>
                         </div>
                     </div>
                 </div>

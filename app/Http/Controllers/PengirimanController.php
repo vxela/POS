@@ -100,6 +100,12 @@ class PengirimanController extends Controller
         //
     }
 
+    public function PrintListKirim($id) {
+        $pengiriman = \App\Models\Tbl_faktur::where('id_pengiriman', '!=', 0)->get();
+
+        return view('pengiriman.show_print', ['data_pengiriman' => $pengiriman]);
+    }
+
     public function AjaxUpdateOne(Request $request) {
 
         $ndata = \App\Models\Tbl_shipments::where('nota_id', $request->id_order)->count();

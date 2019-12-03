@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen']], functio
 });
 
 Route::group(['middleware' => ['auth','CheckUserRole:admin,manajemen,kasir']], function () {
-
+    Route::get('/penjualan/kirim/print/{id}', 'PengirimanController@PrintListKirim');
     Route::post('/penjualan/kirim/order/ajaxUpdate/{id}', 'PengirimanController@AjaxUpdateOne')
                 ->name('kirim.ajaxUpdate');
     Route::get('/penjualan/kirim/order/ajaxGetLeft', 'PengirimanController@AjaxGetLeft')
